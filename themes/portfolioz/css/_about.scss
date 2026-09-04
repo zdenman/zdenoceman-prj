@@ -1,0 +1,112 @@
+.about-content{
+    position: relative;
+    color: white;
+    width: 100%;
+    z-index: 5;
+    // Animation from left and right
+    @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+    }
+    // CSS animation 2
+    @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    //   ----------------------------
+    p{
+        font-size: clamp(0.8rem, 0.7167rem + 0.4444vw, 1.25rem);
+        line-height: 1.5;
+        padding-block: 1rem;
+
+        opacity: 0; 
+        animation-name: fadeInLeft;
+        animation-duration: 1s; 
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        
+    }
+    h1{
+        padding-top: 10vh;
+        font-size: clamp(1rem, 0.8148rem + 0.9877vw, 2rem);
+        padding-bottom: 3rem;
+
+        opacity: 0; 
+        animation-name: fadeInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards; 
+    }
+    h1 span {
+        color: grey;
+    }
+    h2{
+        margin-left: 2rem;
+        padding-top: 2rem;
+        font-weight: 300;
+
+        opacity: 0; 
+        animation-name: fadeInRight;
+        animation-duration: 1s; 
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards; 
+    }
+    h2:nth-of-type(2){
+        padding-top: 2rem;
+
+        opacity: 0;
+        animation-name: fadeInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+    .icons-row,
+    .icons-row2{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1rem;
+        padding-top: 1rem;
+
+        .icon-skill{
+            width: 4rem;
+            text-align: center;
+            color: rgb(161, 161, 161);
+            margin-inline: auto;
+        }
+        @media (max-width: 750px){
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    .icons-row{
+        opacity: 0; 
+    animation-name: fadeInRight;
+    animation-duration: 1s; 
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards; 
+    }
+    .icons-row2{
+    opacity: 0; 
+    animation-name: fadeInLeft;
+    animation-duration: 1s; 
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    }
+    .icons-row2{
+        padding-block: 1rem;
+
+        
+    }
+    
+}

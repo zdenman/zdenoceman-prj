@@ -1,0 +1,183 @@
+//Project
+.project-intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: grey;
+    position: relative;
+    text-align: center;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    h1 {
+        font-size: clamp(7rem, 5.5185rem + 7.9012vw, 15rem);
+        color: white;
+        text-align: center;
+    }
+    p {
+        font-size: clamp(1rem, 0.8148rem + 0.9877vw, 2rem);
+        color: white;
+        
+    }
+    P:nth-of-type(2) {
+        font-weight: 700;
+    }
+
+    .scroll-info {
+        color: white;
+        position: absolute;
+        bottom: 1rem;
+        padding: 1rem 2rem;
+        
+    }
+    
+    .scroll-info span {
+        color: white;
+        padding-left: 1rem;
+    }
+    .project-headline,
+    .project-tagline,
+    .scroll-info {
+        z-index: 99 !important;
+    }
+}
+.project-intro::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    // background-color: rgba(0,0,0,0.6) ;
+    z-index: 1;
+}
+.panel {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .project-content { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        img {
+            max-width: 100%;
+        }
+        .pcontent-wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            padding-block: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: 1.2rem;
+            padding-bottom: 2rem;
+        }
+        .left {
+            width: 50%;
+            padding: 2rem;
+  
+        }
+        .middle {
+            padding: 2rem 0;
+        }
+        .right {
+            width: 50%;
+            padding: 2rem;
+            
+            img {
+                max-width: 100%;
+                
+                
+            }
+        }
+    }
+}
+
+// Some block customizations for single project page
+.project-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: crimson;
+    border-radius: 50%;
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+}
+.project-icon2 {
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(20, 153, 220);
+    border-radius: 50%;
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+}
+.project-icon3 {
+    width: 4rem;
+    height: 4rem;
+    background-color: #34a853;
+    border-radius: 50%;
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+}
+.zcol {
+    text-align: center;
+    list-style: none !important;
+}
+
+.foodfly-ul {
+    margin: 50px;
+}
+.foodfly-ul li {
+    padding-bottom: 50px;
+}
+@keyframes upDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+.scroll-info span i{
+    animation: upDown 0.5s ease-in-out infinite;
+}

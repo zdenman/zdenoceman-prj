@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+body{
+    background: #1e3c72;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    max-width: 750px;
+    width: 100%;
+    padding: 1rem;
+    /* margin: 1rem auto; */
+}
+.small-top-bar{
+    display: flex;
+    gap: 1rem;
+    color: white;
+}
+.sunrise span{
+    color: gold;
+}
+.sunset span{
+    color: orangered;
+}
+.current-day-data{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+   
+}
+.current-temp{
+    color: white;
+    font-size: 5rem;
+}
+.current-temp span{
+    font-size: 2rem;
+}
+#icon{
+    
+    width: 100px;
+    
+}
+img{
+    display: block;
+    width: 100%;
+}
+.current-data-container{
+    display: flex;
+    flex-direction: column;
+}
+.current-data-wrapper{
+    display: flex;
+}
+.current-weather-text{
+    color: white;
+    padding-left: 1rem;
+}
+.small-inner-bar{
+    display: flex;
+    gap: 2rem;
+}
+.date{
+    color: white;
+}
+.clock{
+    color: white;
+    font-size: 10rem;
+    padding-left: 3rem;
+    font-weight: 900;
+}
+.small-bottom-bar{
+    display: flex;
+    gap: 1rem;
+}
+.baby-timer{
+    display: flex;
+    gap: 1.5rem;
+    /* justify-content: center; */
+    align-items: center;
+}
+.baby-icon{
+    width: 100px;
+    padding: 1rem;
+}
+.count-up, .count-down {
+    display: flex;
+    flex-direction: column;
+}
+.count-up *, .count-down * {
+    padding: .2rem;
+}
+.count-up span, .count-down span{
+    color: gold;
+}
+.baby-icon2{
+    width: 56px;
+    padding: 1rem;
+}
+.d-day{
+    font-size: 2rem;
+    font-weight: 700;
+}

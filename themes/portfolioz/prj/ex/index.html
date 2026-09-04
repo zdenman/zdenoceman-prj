@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+    <title>Currency calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Currency calculator</h1>
+            <p class="intro">Currency values are upated daily</p>
+            <p id="rsd">1 EUR = Loading... RSD</p>
+            <p id="czk">1 EUR = Loading... CZK</p>
+        </div>
+        <div class="row2">
+            <div class="eur-rsd">
+            <h3>Convert EUR</h3>
+            <input type="number" id="amount-eur" placeholder="Amount EUR">
+            <button onClick="convertEurRsd()">RSD</button>
+            <button onClick="convertEurCzk()">CZK</button>
+            <p id="converted-money-fr-eur"></p>
+            </div>
+            <div class="rsd-eur">
+                <h3>Convert RSD</h3>
+                <input type="number" id="amount-rsd" placeholder="Amount RSD">
+                <button onClick="convertRsdEur()">EUR</button>
+                <button onClick="convertRsdCzk()">CZK</button>
+                <p id="converted-money-fr-rsd"></p>
+            </div>
+            <div class="czk-eur">
+                <h3>Convert CZK</h3>
+                <input type="number" id="amount-czk" placeholder="Amount CZK">
+                <button onClick="convertCzkEur()">EUR</button>
+                <button onClick="convertCzkRsd()">RSD</button>
+                <p id="converted-money-fr-czk"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+@media (max-width: 1000px){
+    .container .hero .home .text-2 {
+        font-size: 65px;
+       
+        
+    }
+    .container .hero .home .text-3 {
+        font-size: 35px;
+       
+        
+    }
+}
+@media (max-width: 690px) {
+     nav .max-width{
+        padding: 0 1rem;
+        margin: auto;
+    }
+    .hero .max-width{
+        padding: 0 1rem;
+        margin: auto;
+    }
+    .max-width{
+        padding: 0 1rem;
+        margin: auto;
+        width: 100%;
+    }
+    .card {
+        margin: 0 1rem;
+    }
+    .navbar .menu {
+        position: fixed;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+
+    }
+    .navbar .menu.active {
+        left: 0;
+    }
+    .navbar .menu li {
+        display: block; 
+    }
+    .navbar .menu li a {
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .navbar .menu li a:hover {
+        color: crimson;
+    }
+    .menu-btn {
+        display: block;
+        z-index: 999;
+    
+    }
+    /* This is X in mobile menu*/
+    .menu-btn i.active:before {
+        content: "\f00d";
+    }
+    /* End of X */
+    .container .hero .home .text-2 {
+        font-size: 55px;
+        
+    }
+    .container .hero .home .text-3 {
+        font-size: 30px;
+        
+    }
+    // project-grid
+    .hero-grid .project-grid {
+        grid-template-columns: 1fr;
+        margin-top: 15%;
+    }
+    .project-intro .max-width h1 {
+        font-size: 10rem;
+    }
+    .project-intro .max-width p {
+        font-size: 1rem;
+    }
+    .scroll-info {
+        font-size: .7rem;
+    }
+    .max-width {
+        padding: 0 1rem !important;
+        margin: 0;
+    }
+    .panel .project-content .pcontent-wrap {
+        flex-direction: column !important;
+        
+        .left,
+        .right {
+            width: 100%;
+        }
+    }
+    #p-5 {
+        padding: 0 1rem;
+    }
+    #p-6 {
+        .left,
+        .middle,
+        .right {
+            width: 100% !important;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+    }
+    .panel .project-content {
+        h2 {
+            font-size: 1.5rem !important;
+            padding-bottom: 0 !important;
+            padding-top: 1rem;
+        }
+    }
+    #p-9e{
+        .pcontent-wrap {
+            img {
+                display: block;
+                min-width: calc(100% - 2rem);
+            }
+        }
+    }
+    #p-10 {
+        .left,
+        .middle,
+        .right {
+            padding: 0 1rem;
+        }
+    }
+    #p-11 {
+        .pcontent-wrap-2col {
+            grid-template-columns: 1fr !important;
+            padding: 0 1rem;
+        }
+        
+    }
+    #p-12 {
+        .pcontent-wrap-3col {
+        grid-template-columns: 1fr !important;
+        padding: 0 1rem;
+    }
+    }
+    #p-18 {
+        .pcontent-wrap-2col {
+            grid-template-columns: 1fr !important;
+        }
+        .left,
+        .right {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding-bottom: 1rem;
+        }
+    }
+    #p-20 {
+        .pcontent-wrap-2col {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .left,
+        .right {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding-bottom: 1rem;
+        }
+    }
+    #p-21 {
+        .pcontent-wrap-3col{
+            grid-template-columns: 1fr !important;
+        }
+        .left,
+        .middle,
+        .right {
+            width: 100% !important;
+            background-color: #f1f1f1;
+        }
+        .middle {
+            padding:  1rem;
+        }
+    }
+    #p-22 {
+        .project-content {
+            p {
+                padding: 0 1rem;
+            }
+        }
+    }
+    
+   
+
+}
+
+@media (max-width: 560px) {
+    .container .hero .home .text-2 {
+        font-size: 45px;
+        
+    }
+    .container .hero .home .text-3 {
+        font-size: 25px;
+        
+    }
+}
+@media (max-width: 490px) {
+    .container .hero .home .text-1 {
+        font-size: 15px;
+        
+    }
+    .container .hero .home .text-2 {
+        font-size: 45px;
+        
+    }
+    .container .hero .home .text-3 {
+        font-size: 15px;
+        
+    }
+    
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/SVG/favicon.ico" type="image/x-icon">
+    <!-- For Google and Chrome -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/img/SVG/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/SVG/android-chrome-192x192.png">
+    <title>Baby pocasie</title>
+</head>
+<body>
+    <!-- <button onclick="getLocation()">Get Location</button> -->
+    <div class="container">
+        <div class="small-top-bar">
+            <div class="date"></div><div class="current-day"></div><div class="min-temp"></div><div class="max-temp"></div><div class="sunrise"></div><div class="sunset"></div>
+        </div>
+        <div class="current-day-data">
+            <div class="current-data-container">
+                <div class="current-data-wrapper">
+                    <img id="icon" src="" alt="current weather icon">
+                    <div class="current-temp"></div>
+                </div>
+                <div class="small-inner-bar">
+                    <div class="current-weather-text"></div><div class="feels-like"></div>
+                </div>
+            </div>
+            <div class="clock"></div>
+        </div>
+        
+            <div class="small-bottom-bar">
+              <div class="chanse-of-rain"></div><div class="total-precip"></div><div class="humidity"></div><div class="preasure"></div><div class="wind"></div><div class="wind-direction"></div><div class="uv"></div>
+            </div>
+        <div class="baby-timer">
+            <div class="baby-icon"><img src="img/SVG/baby.svg" alt="baby icon"></div>
+            <div class="count-up">
+                <div class="count-up-day"></div>
+                <div class="count-up-week"></div>
+            </div>
+            <div class="count-down">
+                <div class="count-down-day"></div>
+                <div class="count-down-week"></div>
+            </div>
+            <div class="baby-icon2"><img src="img/SVG/flaska.svg" alt="baby flask"></div>
+            <div class="d-day"><p>23.07.2023</p></div>
+        
+        </div>
+    </div>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxWMsqpY3TcclkIUk4YQt0S_jOttL4z_0&callback=initMap"
+    async defer></script> -->
+    <script src="app.js"></script>
+</body>
+</html>

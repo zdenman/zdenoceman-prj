@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: #ffe4c4;
+}
+.item-bar{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+.menus{
+    display: flex;
+    gap: 3rem;
+}
+
+.resources{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    
+}
+.wood-container{
+    display: flex;
+    gap: .5rem;
+}
+.stone-container{
+    display: flex;
+    gap: .5rem;
+}
+.coal-container{
+    display: none;
+}
+
+#mine-stone{
+    display: none;
+}
+#coal-maker{
+    display: none;
+}
+
+.resources-gathering{
+    display: flex;
+}
+.hidden{
+    display: none;
+}
+/* Resources timers */
+.bar{
+    width: 100%;
+    background-color: black;
+}
+#auto-chopper-timer{
+    /* max-width: 200px; */
+    width: 100%;
+    height: 20px;
+    background-color: green;
+    border: 1px solid black;
+    
+}
+#auto-stone-timer{
+    /* max-width: 200px; */
+    width: 100%;
+    height: 20px;
+    background-color: green;
+    border: 1px solid black;
+}
+#auto-coal-timer{
+    /* max-width: 200px; */
+    width: 100%;
+    height: 20px;
+    background-color: green;
+    border: 1px solid black;
+}
+
+.wood-gathering, .stone-gathering, .coal-gathering{
+    width: 15rem;
+    padding: 1rem;
+    background-color: rgb(255, 189, 108);
+    margin: 1rem;
+}
+#chop-wood, #mine-stone, #make-coal{
+    margin-top: 1rem;
+}
