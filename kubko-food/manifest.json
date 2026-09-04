@@ -1,0 +1,17 @@
+{
+    "name": "Kubkova výživová kalkulačka",
+    "short_name": "Kubkova výživová kalkulačka",
+    "start_url": "/prj/kubko-food/",
+    "scope": "/prj/kubko-food/",
+    "display": "fullscreen",
+    "background_color": "#2d2d2d",
+    "theme_color": "#2d2d2d",
+    "description": "Kalkulačka na výpočet kubkovych potravin",
+    "icons": [
+      {
+        "src": "img/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }

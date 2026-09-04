@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module" src="app.js" defer></script>
+    <title>Split the Cost</title>
+</head>
+<body>
+    <div class="container">
+        <div class="register-expenses">
+            <div class="register">
+                <input type="text" id="username" placeholder="Username">
+                <button id="registerBtn">Register</button>
+                <p id="message"></p>
+            </div>
+            <div id="total-expenses">Total expenses: 0 💰</div>
+        </div>
+        <div class="chart">
+            <canvas id="myChart" width="350" height="350"></canvas>
+            </div>
+        <div class="user-split-container">
+            <div id="user-container"></div>
+            <button id="split">Split!</button>
+            <p id="equal-share"></p>
+            <p id="split-result"></p>
+        </div>
+    </div>
+</body>
+</html>

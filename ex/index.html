@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Offline-ready calculators and converters for currency, length, speed, area, volume, BMI, and alcohol estimates.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="landing.js?v=2.0.0"></script>
+    <title>Pocket Calculators</title>
+</head>
+<body class="app-loading">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-splash" id="app-splash">
+        <div class="app-splash__brand" aria-hidden="true">
+            <div class="app-splash__icon">
+                <span class="app-splash__icon-top"></span>
+                <span class="app-splash__icon-screen"></span>
+                <span class="app-splash__icon-keys">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <p class="app-splash__title" data-i18n="landing_title">Pocket Calculators</p>
+        </div>
+    </div>
+
+    <div class="container landing-page" role="main" id="main-content">
+        <div class="row landing-shell">
+            <div class="header-controls">
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu" data-i18n-aria-label="menu_open">
+                    <span class="menu-toggle-icon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+
+            <nav id="nav-menu" class="nav-menu" hidden aria-label="App navigation">
+                <ul class="nav-menu-list" role="list">
+                    <li>
+                        <a href="currency.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">💱</span>
+                            <span class="nav-item-label" data-i18n="menu_currency">Currency</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="length.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">📏</span>
+                            <span class="nav-item-label" data-i18n="menu_length">Length</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="speed.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">⚡</span>
+                            <span class="nav-item-label" data-i18n="menu_speed">Speed</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="area.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">🌾</span>
+                            <span class="nav-item-label" data-i18n="menu_area">Area / Field</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="volume.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">🧊</span>
+                            <span class="nav-item-label" data-i18n="menu_volume">Volume</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bmi.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">⚖️</span>
+                            <span class="nav-item-label" data-i18n="menu_bmi">BMI</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alcohol.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">🍺</span>
+                            <span class="nav-item-label" data-i18n="menu_alcohol">Alcohol</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="nav-item">
+                            <span class="nav-item-icon" aria-hidden="true">⚙️</span>
+                            <span class="nav-item-label" data-i18n="menu_settings">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="landing-hero">
+                <p class="landing-intro" data-i18n="landing_intro">Fast calculators and converters for everyday use, with direct offline access to every tool.</p>
+            </div>
+
+            <div class="landing-grid" aria-label="Tool grid">
+                <a class="landing-card" href="currency.html">
+                    <span class="landing-card-icon" aria-hidden="true">💱</span>
+                    <span class="landing-card-title" data-i18n="menu_currency">Currency</span>
+                    <span class="landing-card-text" data-i18n="landing_currency_desc">Live and cached exchange conversion with offline fallback.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="calculator.html">
+                    <span class="landing-card-icon" aria-hidden="true">🧮</span>
+                    <span class="landing-card-title" data-i18n="menu_calculator">Calculator</span>
+                    <span class="landing-card-text" data-i18n="landing_calculator_desc">Classic calculator with reusable result history on the screen.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="length.html">
+                    <span class="landing-card-icon" aria-hidden="true">📏</span>
+                    <span class="landing-card-title" data-i18n="menu_length">Length</span>
+                    <span class="landing-card-text" data-i18n="landing_length_desc">Metric and imperial length conversion in one place.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="speed.html">
+                    <span class="landing-card-icon" aria-hidden="true">⚡</span>
+                    <span class="landing-card-title" data-i18n="menu_speed">Speed</span>
+                    <span class="landing-card-text" data-i18n="landing_speed_desc">Convert km/h, mph, knots, and more.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="area.html">
+                    <span class="landing-card-icon" aria-hidden="true">🌾</span>
+                    <span class="landing-card-title" data-i18n="menu_area">Area / Field</span>
+                    <span class="landing-card-text" data-i18n="landing_area_desc">Field, hectare, acre, and square-unit conversions.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="volume.html">
+                    <span class="landing-card-icon" aria-hidden="true">🧊</span>
+                    <span class="landing-card-title" data-i18n="menu_volume">Volume</span>
+                    <span class="landing-card-text" data-i18n="landing_volume_desc">Metric and imperial volume units, from ml to gallons.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="bmi.html">
+                    <span class="landing-card-icon" aria-hidden="true">⚖️</span>
+                    <span class="landing-card-title" data-i18n="menu_bmi">BMI</span>
+                    <span class="landing-card-text" data-i18n="landing_bmi_desc">Calculate BMI and review category guidance instantly.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+                <a class="landing-card" href="alcohol.html">
+                    <span class="landing-card-icon" aria-hidden="true">🍺</span>
+                    <span class="landing-card-title" data-i18n="menu_alcohol">Alcohol</span>
+                    <span class="landing-card-text" data-i18n="landing_alcohol_desc">Estimate BAC trends, sober time, and future checks.</span>
+                    <span class="landing-card-cta" data-i18n="landing_open">Open</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+</body>
+</html>

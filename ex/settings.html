@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Adjust language and accent color for Pocket Calculators.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="settings.js?v=2.0.0"></script>
+    <title>Settings</title>
+</head>
+<body class="single-panel-page settings-page">
+    <a href="#settings-main" class="skip-link">Skip to settings</a>
+
+    <div class="container" id="settings-main" role="main">
+        <div class="row settings-shell">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="settings_title">Settings</h1>
+            </div>
+
+            <p class="settings-intro" data-i18n="settings_intro">Choose app language and accent color. Manual settings override automatic device detection.</p>
+
+            <div class="settings-grid">
+                <section class="settings-card" aria-labelledby="settings-language-title">
+                    <div class="settings-card-head">
+                        <span class="settings-card-icon" aria-hidden="true">🌐</span>
+                        <div>
+                            <h2 id="settings-language-title" class="settings-card-title" data-i18n="settings_language_label">Language</h2>
+                            <p class="settings-card-help" data-i18n="settings_language_help">If you do not choose one, the app follows your device or browser language.</p>
+                        </div>
+                    </div>
+
+                    <label class="settings-field-label" for="settings-language-select" data-i18n="settings_language_label">Language</label>
+                    <select id="settings-language-select" class="settings-select" aria-label="Language setting">
+                        <option value="en" data-i18n="settings_lang_en">English</option>
+                        <option value="sk" data-i18n="settings_lang_sk">Slovak</option>
+                        <option value="sr" data-i18n="settings_lang_sr">Serbian</option>
+                    </select>
+                </section>
+
+                <section class="settings-card" aria-labelledby="settings-accent-title">
+                    <div class="settings-card-head">
+                        <span class="settings-card-icon" aria-hidden="true">🎨</span>
+                        <div>
+                            <h2 id="settings-accent-title" class="settings-card-title" data-i18n="settings_accent_label">Accent color</h2>
+                            <p class="settings-card-help" data-i18n="settings_accent_help">This color is used for buttons, highlights, and focus states across the app.</p>
+                        </div>
+                    </div>
+
+                    <label class="settings-field-label" for="settings-accent-input" data-i18n="settings_accent_label">Accent color</label>
+                    <div class="settings-accent-row">
+                        <input id="settings-accent-input" class="settings-color-input" type="color" value="#3b82f6" aria-label="Accent color setting">
+                        <div id="settings-accent-code" class="settings-accent-code">#3B82F6</div>
+                    </div>
+
+                    <div class="settings-preview" aria-hidden="true">
+                        <span class="settings-preview-chip" data-i18n="settings_preview_chip">Accent preview</span>
+                        <button type="button" class="settings-preview-button" data-i18n="landing_open">Open</button>
+                    </div>
+
+                    <button id="settings-accent-reset" type="button" class="page-link settings-reset-button" data-i18n="settings_accent_reset">Reset accent</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+</body>
+</html>

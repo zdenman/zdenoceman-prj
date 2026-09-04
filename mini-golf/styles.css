@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+#splash{
+    display: block;
+    text-align: center;
+}
+#splash h1 {
+    font-weight: 900;
+}
+#splash img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    padding: 3rem;
+}
+#splash button {
+    margin: 2rem auto;
+}
+
+#app {
+    width: 50%;
+    margin: auto;
+}
+#setup {
+    text-align: center;
+}
+#setup button{
+    margin: 2rem auto;
+}
+#setup input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 1.7rem;
+    margin: 10px auto 20px auto;
+    padding-left: 20px;
+    
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+}
+#setup img {
+    width: 30px;
+    height: 30px;
+}
+
+label, input, button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+#podium {
+    display: flex;
+    align-items: flex-end;
+}
+
+.podium-item {
+    width: 100px;
+    text-align: center;
+    margin: 0 10px;
+    background-color: #ddd;
+    /* padding-top: 40px; */
+    position: relative;
+}
+
+.podium-item::before {
+    content: attr(data-rank);
+    font-weight: 600;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gold;
+    padding: 10px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+#podium .first {
+    height: 200px;
+    background: url('./img/pohar.svg') ;
+    background-color: #dddddd;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50px 50px;
+}
+#finalScorePage h2 {
+    padding-bottom: 2rem;
+}
+#podium .second {
+    height: 150px;
+}
+
+#podium .third {
+    height: 100px;
+}
+/* ... (previous CSS code) */
+
+#podium .fourth {
+    height: 75px;
+}
+
+#podium .fifth {
+    height: 50px;
+}
+#playerScreen {
+    text-align: center;
+    padding: 20px;
+}
+
+#playerScreen input[type="checkbox"] {
+    margin: 10px;
+}
+#playerScreen {
+    text-align: center;
+    padding: 20px;
+}
+
+#playerScreen input[type="checkbox"] {
+    margin: 10px;
+}
+#currentPlayer span {
+    font-size: 2rem;
+    font-weight: 900;
+}
+#currentHolePlayer img {
+    width: 30px;
+    height: 30px;
+}
+#currentHolePlayer {
+    padding-bottom: 1.5rem;
+}
+#attempts {
+    padding-bottom: 1.5rem;
+}
+/* ------------------------------ */
+#intermediateScreen {
+    text-align: center;
+}
+#intermediateScreen h2{
+    padding-bottom: .5rem;
+}
+#intermediateScreen button {
+    margin: 2rem auto;
+}
+#intermediateScores {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    
+}
+#intermediateScores li {
+    font-weight: 500;
+}
+#intermediateScreen img {
+    width: 50px;
+    height: 50px;
+    padding-bottom: .5rem;
+}
+.checkbox-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+    margin-bottom: 1.5rem;
+}
+.checkbox-wrapper label {
+    margin: 0;
+}
+
+/* Podium */
+#podium {
+    display: flex;
+    align-items: flex-end;
+}
+
+.podium-item {
+    width: 100px;
+    text-align: center;
+    margin: 0 10px;
+    background-color: #ddd;
+    padding-top: 10px;
+    position: relative;
+}
+
+.podium-item::before {
+    content: attr(data-rank);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gold;
+    padding: 10px;
+    border-radius: 50%;
+}
+.podium-item{
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 2rem;
+}
+.podium-item span {
+    font-weight: 900;
+    font-size: 1.25rem;
+    
+}
+
+#podium .first {
+    height: 200px;
+}
+
+#podium .second {
+    height: 150px;
+}
+
+#podium .third {
+    height: 100px;
+}
+
+#podium .fourth {
+    height: 75px;
+}
+
+#podium .fifth {
+    height: 50px;
+}
+#podium .sixth {
+    height: 30px;
+}
+#finalSettingsLink {
+    padding: 1.5rem;
+    text-align: center;
+}

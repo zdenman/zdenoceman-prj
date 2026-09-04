@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --font-size-xs: clamp(12px, 1.5vw, 16px);
+  --font-size-sm: clamp(14px, 1.75vw, 18px);
+  --font-size-md: clamp(16px, 2vw, 20px);
+  --font-size-lg: clamp(18px, 2.25vw, 22px);
+  --font-size-xl: clamp(20px, 2.5vw, 24px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  /* border: 1px solid red; */
+}
+
+body {
+  /* background-color: #a1a5a7; */
+  height: 100svh;
+  background: rgb(2,0,36);
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,148,55,1) 40%, rgba(8,133,53,1) 60%, rgba(2,0,36,1) 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+      
+}
+
+.credit {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.bet {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-right: 2rem;
+}
+
+.game-wrapper {
+  /* background-color: #d3d8db; */
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 2.5rem;
+  padding: 3rem 1rem;
+  margin: 4rem 1rem;
+  /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+}
+.hidden{
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .game-wrapper {
+    margin: 4rem auto;
+  }
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: white;
+}
+
+.bet-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.plus,
+.minus {
+  background-color: brown;
+  border: none;
+  color: white;
+  width: 2rem;
+  font-size: var(--font-size-md);
+  border-radius: .5rem;
+  padding: .5rem;
+}
+
+.slot-wrapper {
+  display: flex;
+  gap: .5rem;
+  font-size: var(--font-size-xl);
+  justify-content: center;
+  padding: 2rem 1rem;
+  /* background-color: white; */
+  border-radius: 2.5rem;
+}
+
+.wheel1,
+.wheel2,
+.wheel3,
+.wheel4,
+.wheel5 {
+  background-color: white;
+  padding: .5rem;
+  border-radius: .7rem;
+  max-height: 40vh;
+}
+
+@media only screen and (min-width: 600px) {
+  .wheel1,
+  .wheel2,
+  .wheel3,
+  .wheel4,
+  .wheel5 {
+    max-height: none;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jackpot {
+  margin: auto;
+  font-size: var(--font-size-lg);
+  padding: 1rem;
+  color: white;
+}
+
+.message {
+  margin: auto;
+  padding-bottom: .5rem;
+  font-size: var(--font-size-xl);
+  color: white;
+}
+.info{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  border: none;
+  font-weight: 900;
+}
+.risk{
+  display: none;
+  color: white;
+  padding: 1rem 3rem;
+  background: black;
+  border: none;
+  border-radius: .5rem;
+  margin-right: 1rem;
+}
+
+.spin{
+    margin: auto;
+    padding: 2rem;
+    background-color: brown;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 80%;
+    height: 20%;
+    font-size: 1.2rem;
+}
+.plus, .minus {
+    padding: .5rem;
+    margin: 3rem;
+    border-radius: 50%;
+    display: inline-block;
+    width: 35%;
+}
+.wheel-img{
+    width: 100%;
+    animation: move-in .3s ease-in-out;
+    padding: 1rem;
+}
+.win-marker{
+  border: 3px solid red;
+  background-color: rgb(249, 249, 140);
+  border-radius: 1rem;
+}
+.bet-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.result-panel{
+  color: white;
+}
+footer p {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.risk-container{
+  background: white;
+  height: 70%;
+  position: absolute;
+  width: 55%;
+}
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1000px);
+  }
+}
+
+
+/* Risk */
+.risk-container{
+  background-color: #35654d;
+  padding: 1rem;
+  
+
+}
+.result-panel{
+  width: 100%;
+  text-align: right;
+}
+.card-rect{
+  display: flex;
+}
+.card-draw, .player-bet{
+  min-width: 50%;
+}
+.cards{
+  display: flex;
+  gap: 1rem;
+}
+.history-rect{
+  display: flex;
+  gap: .5rem;
+  padding-block: 1rem;
+}
+.card-history-img{
+  width: 3rem;
+}
+.player-bet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.redblack{
+  /* width: 5rem; */
+  margin: 2rem;
+}
+.redblack button{
+  width: 100%;
+  border: none;
+  margin-block: .5rem;
+  padding: .5rem 3rem;
+}
+#red{
+  background-color: red;
+  color: white;
+}
+#black{
+  background-color: black;
+  color: white;
+}
+#collect{
+  width: 100%;
+  border: none;
+  margin-block: .5rem;
+  padding: .5rem 3rem;
+}
+#red:hover, #black:hover, #collect:hover{
+  cursor: pointer;
+}
+/* make design responsive on landscape screens */
+@media only screen and (max-width: 800px) and (orientation: landscape) {
+    .game-wrapper {
+      width: 100%;
+      margin: auto;
+      padding: .5rem;
+      border-radius: 0;
+    }
+.wheel1,
+.wheel2,
+.wheel3,
+.wheel4,
+.wheel5 {
+  background-color: white;
+  padding: 2rem 1rem;
+  
+  
+}
+.wheel-img{
+    transform: scale(5rem, 5rem);
+}
+.slot-wrapper {
+   
+    padding: 0 1rem;
+    
+    
+  }
+  .jackpot {
+    
+    padding: .4rem;
+  }
+  .spin{
+
+    padding: .4rem 1.5rem;
+   border-radius: .5rem;
+    font-size: 1.5rem;
+}
+}

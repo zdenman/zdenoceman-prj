@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #a1a5a7;
+    height: 100;
+}
+.credit{
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+}
+.bet{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.game-wrapper{
+    background-color: #d3d8db;
+    width: 50%;
+    border-radius: 2.5rem;
+    padding: 3rem 1rem;
+    margin: 4rem auto ;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    
+}
+.panel{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    
+}
+.bet-container{
+    display: flex;
+    gap: 1rem;
+}
+.plus, .minus{
+    background-color: brown;
+    border: none;
+    color: white;
+    width: 2rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+}
+.slot-wrapper{
+    display: flex;
+    gap: .5rem;
+    font-size: 5rem;
+    justify-content: center;
+    padding: 2rem 1rem;
+    /* background-color: white; */
+    border-radius: 2.5rem;
+    
+}
+
+.wheel1, .wheel2, .wheel3, .wheel4, .wheel5{
+    background-color: white;
+    padding: 7rem 1rem;
+    border-radius: .7rem;
+    
+   
+}
+
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.jackpot{
+    margin: auto;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.message{
+    margin: auto;
+    padding-bottom: .5rem;
+    font-size: 2rem;
+    color: brown;
+}
+.spin{
+    margin: auto;
+    padding: 1rem 3rem;
+    background-color: brown;
+    border: none;
+    color: white;
+    width: 20%;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+.plus, .minus {
+    padding: .5rem;
+}
+.wheel-img{
+    width: 100%;
+}
+footer p {
+    display: flex;
+    justify-content: center;
+}
+
+/* styles for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+  .game-wrapper {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .panel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bet-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .plus, .minus {
+    font-size: 1rem;
+  }
+  .slot-wrapper {
+    font-size: 3rem;
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* styles for screens between 600px and 900px */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .game-wrapper {
+    width: 70%;
+    margin: 3rem auto;
+  }
+  .slot-wrapper {
+    font-size: 4rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* styles for screens larger than 900px */
+@media screen and (min-width: 900px) {
+  .game-wrapper {
+    width: 50%;
+    margin: 4rem auto;
+  }
+  .slot-wrapper {
+    font-size: 5rem;
+    padding: 2rem 1rem;
+  }
+}

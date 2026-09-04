@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script> -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"
+    /> -->
+
+    <script type="module" src="script.js"></script>
+
+    <!-- Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/Icon180.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Icon32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Icon16.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link
+      rel="mask-icon"
+      href="./icons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#000000" />
+
+    <title>Co budeme dnes jest?</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="add-recipe-btn">+</button>
+      <input type="file" id="fileInput" accept=".json" style="display: none" />
+      <button
+        class="import-recipes-btn"
+        onclick="document.getElementById('fileInput').click();"
+      >
+        Import
+      </button>
+      <button id="export-button" class="export-recipes-btn">Export</button>
+    </nav>
+    <form id="pridaj-jedlo-form" class="hide">
+      <input type="text" value="" id="meal" placeholder="Pridaj jedlo" />
+      <button type="button" method="post" value="submit" id="button-submit">
+        Potvrdit
+      </button>
+    </form>
+    <div class="container">
+      <img src="img/logo.png" alt="" />
+
+      <div class="result">Čo budeme dnes jesť?</div>
+      <button id="gen-jedlo">↺</button>
+      <button id="recipe-count-btn-master">
+        Vsetky recepty <span id="recipe-count-btn"></span>
+      </button>
+      <button id="searchByIngredientsBtn" class="hide">
+        Hladaj podla ingrediencii
+      </button>
+      <div
+        id="ingredientSearchContainer"
+        style="display: none; margin-top: 20px"
+      ></div>
+      <ul id="meal-list" class="meal-list hide"></ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Golf Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="splash">
+        <img src="./img/palice.svg" alt="">
+        <h1>Mini golf tracker</h1>
+        <p>Karloveská partia</p>
+        <button onclick="begin()">Start</button>
+    </div>
+    <div id="setup" style="display:none;">
+        <img src="./img/tricko.svg" alt="">
+        <label for="players">Počet hráčov:</label>
+        <input type="number" id="players" min="2" value="2" onchange="setupPlayers()">
+        <div id="playerNames"></div>
+        <img src="./img/ghole.svg" alt="">
+        <label for="holes">Počet jamiek:</label>
+        <input type="number" id="holes" min="1" value="1">
+        <button onclick="startGame()">Spust hru</button>
+        <a href="javascript:showSettings();">Nastavenia</a>
+    </div>
+
+    <div id="playerScreen" style="display:none;">
+        <div id="currentHolePlayer"></div>
+        <div id="currentPlayer"></div>
+        <div id="attempts"></div>
+        <div class="checkbox-wrapper">
+            <input type="checkbox" id="scored" name="scored"> 
+        <label for="scored">Trafil!</label>
+        </div>
+        <button id="nextPlayerButton" onclick="nextPlayer()">Nasledovný hráč</button>
+        <a href="javascript:showSettings();">Nastavenia</a>
+    </div>
+
+    <div id="finalScorePage" style="display:none;">
+        <h2>Konečné skóre</h2>
+        <div id="podium"></div>
+        <a href="#settings" id="finalSettingsLink" onclick="showSettings()">Nastavenia</a>
+    </div>
+    
+
+    <div id="intermediateScreen" style="display:none;">
+        <h2 id="intermediateTitle"></h2>
+        <img src="./img/vlajke.svg" alt="">
+        <ol id="intermediateScores"></ol>
+        <button id="continueButton" onclick="continueGame()">Nasledovná jamka</button>
+        <a href="javascript:showSettings();">Nastavenia</a>
+    </div>
+
+    <div id="settingsPage" style="display:none;">
+        <button onclick="resetGame()">Reset game</button>
+        <p>resetovať celú hru s menami hráčov, pokusmi, jamkami, skóre.</p>
+        <button onclick="restartSession()">Restarni partiu</button>
+        <p>resetovať iba pokusy, jamky, skóre, ale nechať mená hráčov.</p>
+        <button onclick="restartHole()">Restarni jamku</button>
+        <p>Táto možnosť by mala reštartovať iba aktuálne čísla pre jamku. Začnite túto jamku znova.</p>
+        <button onclick="back()">Spet</button>
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

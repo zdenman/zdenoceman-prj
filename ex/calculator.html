@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Classic calculator with visible calculation history and reusable results.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="calculator.js?v=2.0.0"></script>
+    <title>Calculator</title>
+</head>
+<body class="single-panel-page">
+    <div class="container" role="main">
+        <div class="row calc-page-shell">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="menu_calculator">Calculator</h1>
+            </div>
+
+            <div class="calc-screen-card">
+                <div class="calc-screen-top">
+                    <span class="calc-screen-icon" aria-hidden="true">◌</span>
+                    <button id="calc-clear-screen" type="button" class="calc-clear-screen-btn" data-i18n="calc_clear_screen">Clear screen</button>
+                </div>
+
+                <div id="calc-history" class="calc-history" aria-live="polite"></div>
+
+                <div class="calc-live-row" aria-live="polite">
+                    <span id="calc-expression" class="calc-expression">0</span>
+                </div>
+            </div>
+
+            <div class="calc-keypad" role="group" aria-label="Calculator keypad" data-i18n-aria-label="calc_keypad_aria">
+                <button type="button" class="calc-key calc-key--muted" data-action="clear-entry" data-i18n="calc_clear_entry">CE</button>
+                <button type="button" class="calc-key calc-key--muted" data-action="backspace" data-i18n="calc_backspace">DEL</button>
+                <button type="button" class="calc-key calc-key--muted" data-value="%">%</button>
+                <button type="button" class="calc-key calc-key--accent" data-value="/">÷</button>
+
+                <button type="button" class="calc-key" data-value="7">7</button>
+                <button type="button" class="calc-key" data-value="8">8</button>
+                <button type="button" class="calc-key" data-value="9">9</button>
+                <button type="button" class="calc-key calc-key--accent" data-value="*">×</button>
+
+                <button type="button" class="calc-key" data-value="4">4</button>
+                <button type="button" class="calc-key" data-value="5">5</button>
+                <button type="button" class="calc-key" data-value="6">6</button>
+                <button type="button" class="calc-key calc-key--accent" data-value="-">−</button>
+
+                <button type="button" class="calc-key" data-value="1">1</button>
+                <button type="button" class="calc-key" data-value="2">2</button>
+                <button type="button" class="calc-key" data-value="3">3</button>
+                <button type="button" class="calc-key calc-key--accent" data-value="+">+</button>
+
+                <button type="button" class="calc-key calc-key--wide" data-value="0">0</button>
+                <button type="button" class="calc-key" data-value=".">.</button>
+                <button type="button" class="calc-key calc-key--equal" data-action="evaluate" data-i18n="calc_equals">=</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+</body>
+</html>

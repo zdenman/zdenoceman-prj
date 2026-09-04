@@ -1,0 +1,511 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* Base reset and font settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: #222222;
+}
+
+.max-width {
+  max-width: 71.25rem; /* 1140px */
+  margin: 0 auto;
+}
+
+section {
+  width: 100%;
+  height: 95%;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 0.143rem + 5.143svh, 4rem);
+  font-weight: 700;
+  margin-top: 3.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+h2,
+h3 {
+  font-size: clamp(1.125rem, 0.098rem + 3.286svh, 2.563rem);
+  font-weight: 700;
+  margin: 3.6rem 0 3.6rem 0;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("./img/hero.jpg") no-repeat center center/cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 10;
+}
+
+.logo span {
+  font-size: clamp(1rem, -0.429rem + 4.571svh, 3rem);
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-img {
+  max-width: 12.5rem;
+  margin: 1.5rem 0 1.5rem 2.5rem;
+}
+
+.wrapper,
+.wrapper2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.wrapper2 ul {
+  line-height: 2.2rem;
+  font-size: 1.1rem;
+  padding-bottom: 3.6rem;
+  color: #e1e1e1;
+}
+
+.hero-punchline {
+  font-size: clamp(2rem, 8vw + 1rem, 8rem);
+  font-weight: 900;
+  margin: 2.1rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+p {
+  font-size: clamp(0.75rem, 0.482rem + 0.857svh, 1.125rem);
+  font-weight: 500;
+  line-height: 1.8rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  display: inline-block;
+  background-color: #d71e50;
+  border: none;
+  width: 286px;
+  height: 57px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.steps {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+.wrapper2 p {
+  text-align: left;
+  line-height: 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.wrapper2 p span {
+  color: #d71e50;
+}
+.provize {
+  height: 25vh;
+  background-color: #222222;
+  color: white;
+}
+
+footer {
+  background-color: #222222;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.footer-logo img {
+  max-width: 100px;
+}
+
+footer p {
+  color: #686868;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 1199px) {
+  .hero {
+    height: 100svh;
+  }
+  .wrapper,
+  .wrapper2 {
+    padding-inline: 1rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero {
+    height: 100svh;
+  }
+  .logo-img {
+    max-width: 200px;
+    margin: 0 0 0 0.5rem;
+  }
+  .logo {
+    gap: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .logo span {
+    font-size: 1.5rem;
+  }
+  .steps {
+    flex-direction: column;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 769px) {
+  .logo-img {
+    max-width: 200px;
+    margin: 0 0 0 0.5rem;
+  }
+  .logo {
+    gap: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .logo span {
+    font-size: 1.5rem;
+  }
+  .hero {
+    height: 100svh;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .steps {
+    gap: 20px;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 689px) {
+  .hero {
+    height: 100svh;
+  }
+  .logo-img {
+    max-width: 150px;
+    margin: 0 0 0 0.5rem;
+  }
+  .logo {
+    gap: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .logo span {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .hero-punchline {
+    text-align: center;
+    font-size: 3.6rem;
+  }
+  .steps {
+    gap: 20px;
+  }
+  h2,
+  h3 {
+    margin: 1.6rem 0;
+  }
+  p {
+    line-height: 1.5rem;
+  }
+  .wrapper {
+    margin-top: -8.6rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .footer-logo img {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero {
+    height: 100svh;
+  }
+  .logo-img {
+    max-width: 100px;
+    margin: 0 0 0 0.5rem;
+  }
+  .logo {
+    gap: 0.7rem;
+    top: 0.2rem;
+    left: 0.2rem;
+  }
+  .logo span {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .hero-punchline {
+    text-align: center;
+    font-size: 2.6rem;
+  }
+  .steps {
+    gap: 15px;
+  }
+  h2,
+  h3 {
+    margin: 1.6rem 0;
+  }
+  p {
+    line-height: 1.5rem;
+  }
+  .wrapper {
+    margin-top: -2.6rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .footer-logo img {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .hero {
+    height: 90svh;
+  }
+  .logo-img {
+    max-width: 100px;
+    margin: 0 0 0 0.5rem;
+  }
+  .logo {
+    gap: 1rem;
+    top: 0.2rem;
+    left: 0.2rem;
+  }
+  .logo span {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    top: 3.6rem;
+  }
+  .hero-punchline {
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 2.5rem;
+  }
+  .steps {
+    gap: 15px;
+  }
+  h2,
+  h3 {
+    margin: 1.6rem 0;
+    font-size: 1.5rem;
+  }
+  p {
+    line-height: 1.2rem;
+  }
+  .wrapper {
+    margin-top: -8.6rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  button {
+    width: 250px;
+    height: 45px;
+    color: white;
+    font-size: 0.8rem;
+  }
+  .footer-logo {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 361px) {
+  .hero {
+    height: 100svh;
+  }
+  .logo-img {
+    max-width: 100px;
+  }
+  .logo {
+    gap: 1rem;
+    top: 0.2rem;
+    left: 0.2rem;
+  }
+  .logo span {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1rem;
+    text-align: center;
+    top: 3.6rem;
+  }
+  .hero-punchline {
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 2.5rem;
+  }
+  .steps {
+    gap: 15px;
+  }
+  h2,
+  h3 {
+    margin: 1.6rem 0;
+    font-size: 1.5rem;
+  }
+  p {
+    line-height: 1.2rem;
+  }
+  .wrapper {
+    margin-top: -8.6rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  button {
+    width: 250px;
+    height: 45px;
+    color: white;
+    font-size: 0.8rem;
+  }
+  .footer-logo {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 321px) {
+  .hero {
+    height: 120svh;
+  }
+
+  .logo {
+    gap: 1rem;
+    top: 0.2rem;
+    left: 2.6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-img {
+    max-width: 100px;
+  }
+  .logo span {
+    font-size: 0.7rem;
+  }
+  h1 {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .hero-punchline {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .steps {
+    gap: 15px;
+  }
+  h2,
+  h3 {
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
+  p {
+    line-height: 1.2rem;
+  }
+  .wrapper {
+    margin-top: -8.6rem;
+  }
+  .wrapper2 ul {
+    padding-inline: 1rem;
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.4rem;
+  }
+  button {
+    width: 220px;
+    height: 35px;
+    color: white;
+    font-size: 0.8rem;
+  }
+  .footer-logo {
+    padding: 1rem;
+  }
+  .footer-logo img {
+    width: 60px;
+  }
+}

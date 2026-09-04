@@ -1,0 +1,49 @@
+{
+  "name": "Co budeme dnes jest?",
+  "short_name": "Co budeme dnes jest?",
+  "start_url": "/prj/random-meal/",
+  "scope": "/prj/random-meal/",
+  "display": "standalone",
+  "background_color": "#18305e",
+  "theme_color": "#18305e",
+  "description": "Apka na recepty a napady co budes jest ked sa nevies rozhodnut ",
+  "screenshots": [
+    {
+      "src": "./scrn/scrn1.png",
+      "type": "image/png",
+      "sizes": "631x1306",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "./scrn/scrn2.png",
+      "type": "image/png",
+      "sizes": "638x1305",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "./scrn/scrn3.png",
+      "type": "image/png",
+      "sizes": "656x1297",
+      "form_factor": "narrow"
+    }
+  ],
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./img/Icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/Icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

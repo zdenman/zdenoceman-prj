@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --primary-body-bg: #2d2d2d;
+  --primary-text-color: #ffffff;
+  --primary-border-color: #ccc
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primary-body-bg);
+  color: var(--primary-text-color);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #1a1a1a;
+}
+.add-recipe-btn {
+  margin-right: auto;
+}
+.import-recipes-btn,
+.export-recipes-btn {
+  margin-left: 1rem;
+}
+#recipe-count-btn {
+  width: 20px;
+    height: 20px;
+    background-color: #c0392b; /* Tmavší odtieň červenej */
+    color: var(--primary-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 1em;
+    vertical-align: middle;
+    margin-left: .5rem;
+}
+.ingredient-flex-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.container img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+.ingredients-container {
+  display: none;
+}
+.result {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.meal-list {
+  width: 100%;
+  /* display: block; */
+  /* opacity: 0; */
+}
+#meal {
+  /* width: 100%;  */
+  padding: 8px; 
+  font-size: 14px; 
+  border: 1px solid var(--primary-border-color); 
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.meal-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0.5rem;
+  margin-bottom: 0.3rem;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.3rem;
+}
+.meal-list-item:hover {
+  cursor: pointer;
+  background-color: #3a3a3a;
+}
+
+/* View Recipe modal  */
+.ingredient-row {
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-list-recipe-view {
+  padding: 1rem 0 1rem 2rem;
+}
+.step-list-recipe-view {
+  padding: 1rem 0 1rem 2rem;
+}
+.step-list-recipe-view li {
+  margin-bottom: 1rem;
+}
+.recipe-source-link a {
+  color: deepskyblue;
+}
+
+/* Edit recipe modal */
+#deleteRecipeBtn {
+  width: auto;
+  background-color: crimson;
+}
+#saveRecipeBtn {
+  width: auto;
+  background-color: green;
+}
+.step-description {
+  width: 93%;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+/* .step-description:first-of-type {
+  margin-top: 0.1rem;
+} */
+.remove-step {
+  background-color: crimson;
+}
+textarea {
+  padding-inline: 0.5rem;
+}
+
+/* Style for the overlay */
+#modalOverlay {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+/* Style for the modal window */
+#modalWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2d2d2d;
+  padding: 10px 20px 20px 20px;
+  z-index: 1001; /* Ensure it's on top of the overlay */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: calc(100% - 50px);
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Plynulé posúvanie na iOS */
+}
+#editRecipeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#editRecipeForm small {
+  font-size: 0.75em;
+  color: #7e7e7e;
+  font-style: italic;
+}
+#editRecipeForm label:nth-of-type(4) {
+  margin-bottom: 0.8rem;
+}
+.recipe-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  padding-top: 0.8rem;
+}
+
+/* Scrollbars stylings */
+html {
+  overflow-y: auto; /* Automatické zobrazenie scrollbar, ak je potrebné */
+}
+/* Štýl scrollbar pre moderné prehliadače (Chrome, Edge, Safari) */
+html::-webkit-scrollbar {
+  width: 20px; /* Šírka scrollbar */
+  display: none; /* Skry scrollbar úplne */
+}
+
+html::-webkit-scrollbar-track {
+  background: #333; /* Pozadie scrollbaru */
+  border-radius: 6px; /* Zaoblenie */
+}
+html:has(:overflowing) {
+  overflow-y: scroll; /* Zobraz scrollbar len ak je potrebné */
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #555; /* Farba "thumb" */
+  border-radius: 6px; /* Zaoblenie "thumb" */
+  border: 2px solid #333; /* Okraje pre lepší kontrast */
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Svetlejšia farba pri hover */
+}
+
+/* Pre Firefox */
+html {
+  scrollbar-width: thin; /* Tenký scrollbar */
+  scrollbar-color: #555 #333; /* Thumb (#555), Track (#333) */
+}
+
+/* Globálny fallback pre staršie prehliadače */
+html {
+  overflow-y: scroll; /* Uisti sa, že overflow-y je nastavené */
+}
+
+/* Hladaj podla ingrediencii */
+#ingredientSearchContainer {
+  border: 1px solid #505050;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #414141;
+  border-radius: 5px;
+}
+
+/* Flex Container */
+.ingredient-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start;
+}
+
+/* Flex Item */
+.ingredient-flex-item {
+  flex: 1 1 calc(25% - 10px); /* 3 columns by default */
+  /* box-sizing: border-box; */
+  /* padding: 10px; */
+  /* border: 1px solid #505050; */
+  border-radius: 5px;
+  background-color: #414141;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: small;
+}
+.ingredient-flex-item::after {
+  content: "";
+  flex: 1 1 calc(25% - 15px); /* Same as items */
+  visibility: hidden; /* Make it invisible */
+}
+
+/* Checkbox Styling */
+.ingredient-checkbox {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* Label Styling */
+.ingredient-flex-item label {
+  cursor: pointer;
+}
+
+/* Highlight Checked Ingredients */
+.ingredient-checkbox:checked + label {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ingredient-flex-item {
+    flex: 1 1 calc(33.333% - 10px); /* 3 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .ingredient-flex-item {
+    flex: 1 1 calc(100% - 5px); /* 1 column on very small screens */
+  }
+}
+.meal-list-item {
+  padding: 10px;
+  border: 1px solid #505050;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.meal-list-item:hover {
+  background-color: #242424;
+}
+
+.button-container {
+  margin-top: 1rem;
+}
+button {
+  align-self: flex-start;
+  padding: 0.4rem 1.5rem;
+  background-color: rgb(25, 92, 158);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  width: auto; /* Button width adjusts based on text content */
+  max-width: 100%; /* Prevents the button from overflowing */
+  white-space: nowrap; /* Keeps text on a single line */
+}
+button:hover {
+  cursor: pointer;
+  background-color: black;
+}
+#gen-jedlo {
+  padding: 1.3rem 1.5rem;
+  border-radius: 50%;
+  background-color: rgb(25, 92, 158);
+  align-self: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+#gen-jedlo:hover {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 320px) {
+  #modalWindow {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 10px 10px 10px;
+  }
+  #editRecipeForm label:nth-of-type(4) {
+    margin-bottom: 0.2rem;
+  }
+}

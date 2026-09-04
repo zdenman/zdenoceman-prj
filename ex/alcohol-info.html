@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <title>How BAC Calculator Works</title>
+</head>
+<body class="single-panel-page">
+    <div class="container info-page" role="main">
+        <div class="row">
+            <div class="info-top-actions">
+                <a id="back-link" class="page-link" href="index.html" data-i18n="back_to_grid">Back to tools</a>
+            </div>
+
+            <div class="info-header">
+                <h1 data-i18n="alc_info_title">How the BAC calculator works</h1>
+                <p class="info-acronym" data-i18n="alc_info_acronym">BAC = Blood Alcohol Concentration / concentration of alcohol in blood</p>
+                <p class="info-subtitle" data-i18n="alc_info_intro">A practical explanation of what BAC means, what the calculator estimates, which formula it uses, and why the number can still rise for a while after your last drink.</p>
+            </div>
+
+            <div class="info-callout" data-i18n="alc_info_callout">Important: this page explains the estimate, not a legal guarantee. Never use it as the only reason to decide that driving is safe.</div>
+
+            <div class="info-grid">
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_basics_title">What the calculator estimates</h2>
+                    <p data-i18n="alc_info_basics_p1">The calculator estimates blood alcohol concentration in ‰ from the drinks you entered, your body weight, your selected sex factor, and the time when each drink was consumed.</p>
+                    <p data-i18n="alc_info_basics_p2">It does not measure real alcohol in your body. It builds a model: how much pure alcohol likely entered your blood, how quickly it is absorbed, and how fast the body removes it over time.</p>
+                </section>
+
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_formula_title">Method and formula</h2>
+                    <p data-i18n="alc_info_formula_p1">For each drink, the calculator first converts the drink into grams of pure alcohol, then estimates the peak contribution to BAC using a Widmark-style formula.</p>
+                    <div class="info-formula">
+                        <div>alcohol g = volume ml × (ABV / 100) × 0.789</div>
+                        <div>peak BAC ≈ alcohol g / (weight kg × r)</div>
+                        <div>elimination ≈ 0.15 ‰ / hour</div>
+                    </div>
+                    <p data-i18n="alc_info_formula_p2">The factor r is set lower for women than for men, because the standard Widmark estimate assumes a lower distribution factor. In this app, that means women will usually get a higher estimated BAC from the same drink intake and body weight.</p>
+                </section>
+
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_rising_title">Why BAC can be low first and higher later</h2>
+                    <p data-i18n="alc_info_rising_p1">Alcohol is not in your blood at full strength the second you finish a drink. There is an absorption phase. In the calculator, alcohol rises gradually for about 30 minutes without food and about 60 minutes if you selected that you ate.</p>
+                    <p data-i18n="alc_info_rising_p2">That is why you can drink a shot now, see a lower BAC immediately, and then see a higher BAC 10 to 30 minutes later. The body may still be absorbing alcohol faster than it can eliminate it.</p>
+                </section>
+
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_zero_title">How the sober time is calculated</h2>
+                    <p data-i18n="alc_info_zero_p1">The app simulates all entered drinks together on one shared BAC curve. Each drink adds alcohol gradually, but elimination happens once from the total BAC, not separately for each drink.</p>
+                    <p data-i18n="alc_info_zero_p2">After the last drink reaches its peak, the curve only goes down. The "sober at" time is the point where the simulated BAC drops back to 0.00 ‰.</p>
+                </section>
+
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_inputs_title">What changes the result</h2>
+                    <ul class="info-list">
+                        <li data-i18n="alc_info_input_1">Higher volume or higher ABV means more pure alcohol and a higher BAC.</li>
+                        <li data-i18n="alc_info_input_2">Lower body weight means less distribution volume and a higher BAC.</li>
+                        <li data-i18n="alc_info_input_3">Selecting food slows the rise, so the peak comes later.</li>
+                        <li data-i18n="alc_info_input_4">Multiple drinks close together stack on top of each other and extend the sober time.</li>
+                        <li data-i18n="alc_info_input_5">The future time check uses the same curve, so you can compare now vs later.</li>
+                    </ul>
+                </section>
+
+                <section class="info-card">
+                    <h2 data-i18n="alc_info_limits_title">What the calculator does not know</h2>
+                    <ul class="info-list">
+                        <li data-i18n="alc_info_limit_1">Your real metabolism may be slower or faster than the average 0.15 ‰ per hour.</li>
+                        <li data-i18n="alc_info_limit_2">The app does not know your age, liver condition, medication, fatigue, hydration, or drinking history.</li>
+                        <li data-i18n="alc_info_limit_3">Food is simplified into one slower absorption option. Real digestion is more complex.</li>
+                        <li data-i18n="alc_info_limit_4">Because of that, the result is educational and approximate, not proof that you are safe to drive.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="alcohol-info.js?v=2.0.0"></script>
+</body>
+</html>

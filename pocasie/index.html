@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#000000">
+    <title>Počasie</title>
+</head>
+<body>
+    <div id="loader" class="loader"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <!-- <button onclick="getLocation()">Get Location</button> -->
+    <div class="menu-container">
+        <nav class="navbar"><a id="menu" href="#">Menu</a></nav><div class="info-nav"><div class="location"></div><div class="date" title="Dnesny datum"></div><div class="current-day"></div></div>
+    </div>
+    <ul id="city-drop" class="city-drop">
+        <!-- <input type="text" id="city" placeholder="Napis svoju lokalitu" value=""> -->
+        <!-- <button id='addCity'type="submit">Add</button> -->
+    </ul>
+    <div class="side-panel">
+        <ul class="side-panel-menu">
+            <div class="x">❌</div>
+            <li data-action="home" id="menuBtn" class="home" data-translate-key="menuBtnHome">Home</li>
+            <li data-action="astro" id="menuBtn" class="astro" data-translate-key="menuBtnAstro">Astro</li>
+            <!-- <li data-action="baufort" id="menuBtn" class="mbaufort" data-translate-key="menuBtnBaufort">Baufort Scale</li> -->
+            <li data-action="settings" id="menuBtn" class="settings" data-translate-key="menuBtnSettings">Nastavenia</li>
+            <!-- <li data-action="help" id="menuBtn" class="help" data-translate-key="menuBtnHelp">Pomoc</li> -->
+            <li data-action="credits" id="menuBtn" class="credits" data-translate-key="menuBtnCredits">O appke</li>
+        </ul>
+        <div class="version"></div>
+    </div>  
+    <div id="container1" class="container show">
+        
+        <div class="small-top-bar">
+            <div class="min-temp" title="Minimalna teplota"></div><div class="min-temp-res"></div><div class="max-temp" title="Maximalna teplota"></div><div class="max-temp-res"></div><div class="sunrise" title="Vychod slnka"></div><div class="sunrise-res"></div><div class="sunset" title="Zapad slnka"></div><div class="sunset-res"></div><div class="uv-res">UV:</div><div class="uv" title="Index UV žiarenia"></div>
+        </div>
+        <div class="current-day-data">                                                                                                                                                 
+            <div class="current-data-container">
+                <div class="current-data-wrapper">
+                    <div class="column1">
+                        <div class="current-weather-icon">
+                            <img id="icon" class="center-crop" src="" alt="current weather icon">
+                        </div>
+                        <div class="current-weather-text"></div>
+                    </div>
+                    <div class="column2">
+                        <div class="current-temp"></div>
+                        <div class="feel-wrapper">
+                            <div class="feel-text" data-translate-key="feelsLikeText">Pocitovo</div>
+                            <div class="feels-like"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="clock"></div>
+            <div class="two-days-container">
+                <div class="day-one">
+                    <div class="forecast-wrap">
+                        <div class="icon-text" data-translate-key="dayTomorrow">Zajtra</div>
+                        <img class="tomorrow-icon" src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day1-mintemp-c"></div>
+                        <div class="icon-text">Min</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day1-maxtemp-c"></div>
+                        <div class="icon-text">Max</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day1-chance-rain"></div>
+                        <div class="icon-text" data-translate-key="chanceRain">Zražky</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day1-wind"></div>
+                        <div class="icon-text" data-translate-key="wind">Vietor</div>
+                    </div>
+                </div>
+                <div class="day-two">
+                    <div class="forecast-wrap">
+                        <div class="icon-text" data-translate-key="dayOvermorrow">Pozajtra</div>
+                        <img class="overmorrow-icon" src="" alt="forecast icon">
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day2-mintemp-c"></div>
+                        <div class="icon-text">Min</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day2-maxtemp-c"></div>
+                        <div class="icon-text">Max</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day2-chance-rain"></div>
+                        <div class="icon-text" data-translate-key="chanceRain">Zražky</div>
+                    </div>
+                    <div class="forecast-wrap">
+                        <div class="day2-wind"></div>
+                        <div class="icon-text" data-translate-key="wind">Vietor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small-bottom-bar">
+              <div class="chanse-of-rain" title="Pravdepodobnost zražok"></div><div class="chanse-of-rain-res"></div><div class="humidity" title="Vlhkost vzduchu %"></div><div class="humidity-res"></div><div class="preasure" title="Tlak vzduchu"></div><div class="preasure-res"></div><div class="wind" title="Rychlost vetra"></div><div class="wind-res"></div><div class="wind-direction" title="Smer vetra"></div><div class="wind-arrow"></div>
+        </div>
+        <div class="hourly-options">
+            <button data-action="temp" class="btn active" data-translate-key="btnTemp">Teplota</button>
+            <button data-action="rain" class="btn" data-translate-key="btnRain">Zražky</button>
+            <button data-action="wind" class="btn" data-translate-key="btnWind">Vietor</button>
+            <button data-action="preassure" class="btn" data-translate-key="btnPreassure">Tlak</button>
+        </div>
+        
+        <div id="temp" class="hourly show">
+            <div class="chart-container">
+                <canvas id="tempChart"></canvas>
+                <h2 data-translate-key="horlyWeatherH2">Počasie pre každu hodinu</h2>
+            </div>
+        </div>
+        <div id="zrazky" class="hourly">
+            <div class="chart-container">
+                <canvas id="precipChart"></canvas>
+                <h2 data-translate-key="horlyWeatherH2">Počasie pre každu hodinu</h2>
+            </div>
+        </div>
+        <div id="vietor" class="hourly">
+            <div class="chart-container">
+                <canvas id="windChart"></canvas>
+                <h2 data-translate-key="horlyWeatherH2">Počasie pre každu hodinu</h2>
+            </div>
+        </div>
+        <div id="tlak" class="hourly">
+            <div class="chart-container">
+                <canvas id="pressureChart"></canvas>
+                <h2 data-translate-key="horlyWeatherH2">Počasie pre každu hodinu</h2>
+            </div>
+        </div>   
+    </div>
+    <div id="container2" class="astro-container">
+        <button id="back-btn-astro" data-translate-key="backBtn">Back</button>
+        <h1>Astro</h1>
+        <div class="astro-top-bar">
+            <div class="moon-rise"></div><div class="moon-set"></div>
+        </div>
+        <div class="astro-main"></div>
+        <div class="illumination"></div>
+        <div class="illumination-wrapper" data-translate-key="astroPageIllumination"></div>
+        <div class="astro-low-bar"></div>
+        <div class="moonphase-desc"></div>
+    </div>
+    <!-- ------------------------------------------------------ -->
+    <div class="astro-moonphases-desc">
+        <button id="back-btn-moonphases-desc" data-translate-key="backBtn">Back</button>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img1" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase1Name"></h2><h3 data-translate-key="phase1Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase1Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img2" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase2Name"></h2><h3 data-translate-key="phase2Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase2Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img3" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase3Name"><h3 data-translate-key="phase3Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase3Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img4" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase4Name"></h2><h3 data-translate-key="phase4Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase4Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img5" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase5Name"></h2><h3 data-translate-key="phase5Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase5Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img6" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase6Name"></h2><h3 data-translate-key="phase6Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase6Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img7" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase7Name"></h2><h3 data-translate-key="phase7Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase7Desc"></div>
+        </div>
+        <div class="moonphase-container">
+            <div class="moonphase-row">
+                <div class="moonphase-img"><img id="moonphase-img8" src=""></div>
+                <div class="astro-low-bar-page"><h2 data-translate-key="phase8Name"></h2><h3 data-translate-key="phase8Sub"></h3></div>
+            </div>
+            <div class="moonphase-desc-page" data-translate-key="phase8Desc"></div>
+        </div>
+    </div> 
+    <div id="container3" class="settings-container">
+        <button id="back-btn-settings" data-translate-key="backBtn">Back</button>
+        <h1 data-translate-key="settingsPageTitle">Nastavenia</h1>
+        <p data-translate-key="settingsPageColorSub">Vyber si farebne rozhranie</p>
+        <button id="blue-marlin" class="blue-marlin">Blue Marlin</button>
+        <button id="moonlit-asteroid" class="moonlit-asteroid">Moonlit Asteroid</button>
+        <button id="deep-space" class="deep-space">Deep Space</button>
+        <button id="sand-blue" class="sand-blue">Sand blue</button>
+        <button id="visions-grandeur" class="visions-grandeur">Visions of Grandeur</button>
+        <p data-translate-key="settingsPageLangSub"></p>
+        <button id="enBtn" data-translate-key="btnTransEng">Anglicky</button>
+        <button id="skBtn" data-translate-key="btnTransSk">Slovensky</button>
+        <button id="srBtn" data-translate-key="btnTransSrb">Srbsky</button>
+    </div>
+    <div id="container4" class="help-container">
+        <button id="back-btn-help" data-translate-key="backBtn">Back</button>
+        <h1>Pomoc</h2>
+    </div>
+    <div id="container5" class="credits-container">
+        <button id="back-btn-credits" data-translate-key="backBtn">Back</button>
+        <h1 data-translate-key="creditsPageTitle">O Appke</h1>
+        <p data-translate-key="CreditsPageDes">It's fully functional weather app with 3 days forecast. Currently can be installed on desktop or mobile as PWA (progressive web application).
+            It has 5 color themes and comes in 3 languages English, Slovak and Serbian.
+        </p>
+        <p><span data-translate-key="CreditsPageLink1">Developed in javaScript/jQuery by</span> <a href="https://zdenoceman.com">Zdeno Ceman</a></p>
+        <p><span data-translate-key="CreditsPageLink2">All wether data is provided by</span> <a href="https://www.weatherapi.com">WeatherAPI.com</a></p>
+        <p><span data-translate-key="CreditsPageLink3">Weather icons are made by Basmilius</span> <a href="https://github.com/basmilius/weather-icons">Github</a></p>
+    </div>
+    <div class="baufort-container">
+        <button id="back-btn-baufort" data-translate-key="backBtn">Back</button>
+        <h1 data-translate-key="baufortPageHeadline">Baufort Scale</h1>
+        <p data-translate-key="baufortPageSubtitle">Wind intensity scale</p>
+        <div class="baufort-level-wrap">
+            <div id="bicon0" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc0">Calm</div>
+                <div class="baufort-wind-int">0 - 2 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand0">Smoke rises vertically</div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea0">Sea like a mirror</div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon1" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc1"></div>
+                <div class="baufort-wind-int">2 - 5 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand1"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea1"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon2" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc2"></div>
+                <div class="baufort-wind-int">6 - 11 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand2"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea2"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon3" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc3"></div>
+                <div class="baufort-wind-int">12 - 19 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand3"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea3"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon4" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc4"></div>
+                <div class="baufort-wind-int">20 - 28 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand4"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea4"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon5" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc5"></div>
+                <div class="baufort-wind-int">29 - 38 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand5"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea5"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon6" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc6"></div>
+                <div class="baufort-wind-int">39 - 49 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand6"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea6"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon7" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc7"></div>
+                <div class="baufort-wind-int">50 - 61 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand7"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea7"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon8" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc8"></div>
+                <div class="baufort-wind-int">62 - 74 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand8"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea8"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon9" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc9"></div>
+                <div class="baufort-wind-int">75 - 88 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand9"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea9"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon10" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc10"></div>
+                <div class="baufort-wind-int">89 - 102 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand10"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea10"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon11" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc11"></div>
+                <div class="baufort-wind-int">103 - 117 <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand11"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea11"></div>
+            </div>
+        </div>
+        <div class="baufort-level-wrap">
+            <div id="bicon12" class="baufort-icon"></div>
+            <div class="baufort-inner-wrap">
+                <div class="baufort-wind-desc" data-translate-key="baufWindDesc12"></div>
+                <div class="baufort-wind-int">118+ <span>kmh</span></div>
+                <div class="baufort-wind-land" data-translate-key="baufWindLand12"></div>
+                <div class="baufort-wind-sea" data-translate-key="baufWindSea12"></div>
+            </div>
+        </div>
+    </div>
+    <div class="uv-index-container">
+        <button id="back-btn-uv" data-translate-key="backBtn">Back</button>
+        <h1 data-translate-key="uvIndexPageTitle"></h1>
+        <p data-translate-key="uvIndexPageDesc"></p>
+            <div class="uv-wrapper">
+                <div class="uv-icon-row" id="uv-icons-level1">
+
+                </div>
+                <div class="uv-desc-row" id="uv-desc-level1" data-translate-key="uvIndexPageDescLevel1">
+                    
+                </div>
+
+            </div>
+            <div class="uv-wrapper">
+                <div class="uv-icon-row" id="uv-icons-level2">
+
+                </div>
+                <div class="uv-desc-row" id="uv-desc-level2" data-translate-key="uvIndexPageDescLevel2">
+                    
+                </div>
+
+            </div>
+            <div class="uv-wrapper">
+                <div class="uv-icon-row" id="uv-icons-level3">
+
+                </div>
+                <div class="uv-desc-row" id="uv-desc-level3" data-translate-key="uvIndexPageDescLevel3">
+                    
+                </div>
+
+            </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

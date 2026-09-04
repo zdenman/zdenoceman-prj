@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Tasker</title>
+  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+  <header>
+    <h1>Tasker</h1>
+    <div class="header-controls">
+      <button class="view-toggle-btn" onclick="toggleView()" id="viewToggleBtn" title="Switch to column view">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/>
+          <rect x="14" y="3" width="7" height="7"/>
+          <rect x="3" y="14" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/>
+        </svg>
+      </button>
+      <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="settings-btn" onclick="showSettingsModal()" title="Settings">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
+      <button class="add-list-btn" onclick="showAddListModal()">+ New List</button>
+    </div>
+  </header>
+
+  <div id="listsContainer" class="lists-container">
+    <!-- Lists will be dynamically generated here -->
+  </div>
+
+  <!-- Add List Modal -->
+  <div id="addListModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddListModal()">&times;</span>
+      <h2>Create New List</h2>
+      <form id="addListForm">
+        <input type="text" id="newListName" placeholder="List name..." required/>
+        <input type="date" id="newListDate"/>
+        <input type="time" id="newListTime"/>
+        <textarea id="newListDescription" placeholder="List description (optional)..." rows="3"></textarea>
+        <button type="submit">Create List</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit List Modal -->
+  <div id="editListModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditListModal()">&times;</span>
+      <h2>Edit List</h2>
+      <form id="editListForm">
+        <input type="text" id="editListName" placeholder="List name..." required/>
+        <input type="date" id="editListDate"/>
+        <input type="time" id="editListTime"/>
+        <textarea id="editListDescription" placeholder="List description (optional)..." rows="3"></textarea>
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Task Modal -->
+  <div id="editTaskModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditTaskModal()">&times;</span>
+      <h2>Edit Task</h2>
+      <form id="editTaskForm">
+        <input type="text" id="editTaskText" placeholder="Task text..." required/>
+        <div class="modal-time-controls">
+          <button type="button" class="time-toggle-btn" onclick="toggleModalTimeInputs()" title="Add time & date">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </button>
+          <div class="modal-time-inputs" style="display: none;">
+            <input type="time" id="editTaskTime"/>
+            <input type="date" id="editTaskDate"/>
+          </div>
+        </div>
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSettingsModal()">&times;</span>
+      <h2>Settings</h2>
+      <div class="settings-tabs">
+        <button class="settings-tab-btn active" data-tab="data" onclick="switchSettingsTab('data')">Data</button>
+        <button class="settings-tab-btn" data-tab="localisation" onclick="switchSettingsTab('localisation')">Localisation</button>
+      </div>
+
+      <div id="settingsDataTab" class="settings-tab-panel active">
+        <div class="settings-section">
+          <h3>Data Management</h3>
+          <div class="settings-buttons">
+            <button class="modal-btn export-btn" onclick="exportData()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Export Data
+            </button>
+            <button class="modal-btn import-btn" onclick="importData()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17,8 12,3 7,8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              Import Data
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="settingsLocalisationTab" class="settings-tab-panel">
+        <div class="settings-section">
+          <h3>Localisation</h3>
+          <div class="settings-form-grid">
+            <label for="dateFormatSelect" class="settings-label">Date Format</label>
+            <select id="dateFormatSelect" class="settings-select" onchange="handleLocalizationChange()">
+              <option value="iso">YYYY-MM-DD</option>
+              <option value="dmy">DD.MM.YYYY</option>
+              <option value="mdy">MM/DD/YYYY</option>
+            </select>
+
+            <label for="timeFormatSelect" class="settings-label">Time Format</label>
+            <select id="timeFormatSelect" class="settings-select" onchange="handleLocalizationChange()">
+              <option value="24h">24 hour</option>
+              <option value="12h">12 hour</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="handleFileImport(event)"/>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <footer class="app-footer">
+    <span id="appVersion" class="app-version">v1.2.7</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

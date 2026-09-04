@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <title>Length Calculator</title>
+</head>
+<body class="single-panel-page">
+    <div class="container" role="main">
+        <div class="row">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="menu_length">Length</h1>
+            </div>
+
+            <p class="length-intro" data-i18n="length_intro">Convert between metric and imperial units</p>
+
+            <div class="unit-pair">
+                <div class="unit-select-group">
+                    <label for="from-unit" data-i18n="length_from">From</label>
+                    <select id="from-unit" aria-label="From unit">
+                        <optgroup label="Metric" data-unit-group="metric">
+                            <option value="km" data-i18n-unit data-unit-display="km">kilometer (km)</option>
+                            <option value="m" data-i18n-unit data-unit-display="m" selected>meter (m)</option>
+                            <option value="cm" data-i18n-unit data-unit-display="cm">centimeter (cm)</option>
+                            <option value="mm" data-i18n-unit data-unit-display="mm">millimeter (mm)</option>
+                        </optgroup>
+                        <optgroup label="Imperial" data-unit-group="imperial">
+                            <option value="mi" data-i18n-unit data-unit-display="mi">mile (mi)</option>
+                            <option value="yd" data-i18n-unit data-unit-display="yd">yard (yd)</option>
+                            <option value="ft" data-i18n-unit data-unit-display="ft">foot (ft)</option>
+                            <option value="in" data-i18n-unit data-unit-display="in">inch (in)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <button class="swap-btn" id="swap-btn" type="button" data-i18n-aria-label="length_swap" aria-label="Swap units">⇄</button>
+
+                <div class="unit-select-group">
+                    <label for="to-unit" data-i18n="length_to">To</label>
+                    <select id="to-unit" aria-label="To unit">
+                        <optgroup label="Metric" data-unit-group="metric">
+                            <option value="km" data-i18n-unit data-unit-display="km">kilometer (km)</option>
+                            <option value="m" data-i18n-unit data-unit-display="m">meter (m)</option>
+                            <option value="cm" data-i18n-unit data-unit-display="cm">centimeter (cm)</option>
+                            <option value="mm" data-i18n-unit data-unit-display="mm">millimeter (mm)</option>
+                        </optgroup>
+                        <optgroup label="Imperial" data-unit-group="imperial">
+                            <option value="mi" data-i18n-unit data-unit-display="mi" selected>mile (mi)</option>
+                            <option value="yd" data-i18n-unit data-unit-display="yd">yard (yd)</option>
+                            <option value="ft" data-i18n-unit data-unit-display="ft">foot (ft)</option>
+                            <option value="in" data-i18n-unit data-unit-display="in">inch (in)</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <input type="number" id="length-input" class="length-input"
+                   placeholder="Enter value" min="0" step="any"
+                   data-i18n-placeholder="length_enter_value"
+                   aria-label="Value to convert">
+
+            <div class="length-btn-group">
+                <button id="convert-btn" class="length-convert-btn" type="button" data-i18n="length_convert">Convert</button>
+                <button id="reset-btn" class="length-reset-btn" type="button" data-i18n="length_reset">Reset</button>
+            </div>
+
+            <div id="length-result" class="length-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="mobile-unit-picker.js?v=2.0.0"></script>
+    <script defer src="length.js?v=2.0.0"></script>
+</body>
+</html>

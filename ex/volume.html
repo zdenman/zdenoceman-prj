@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <title>Volume Calculator</title>
+</head>
+<body class="single-panel-page">
+    <div class="container" role="main">
+        <div class="row">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="menu_volume">Volume</h1>
+            </div>
+
+            <p class="length-intro" data-i18n="volume_intro">Convert between metric and imperial volume units</p>
+
+            <div class="unit-pair">
+                <div class="unit-select-group">
+                    <label for="from-unit" data-i18n="volume_from">From</label>
+                    <select id="from-unit" aria-label="From unit">
+                        <optgroup label="Metric" data-unit-group="metric">
+                            <option value="m3" data-i18n-unit data-unit-display="m³">cubic meter (m³)</option>
+                            <option value="dm3" data-i18n-unit data-unit-display="dm³">cubic decimeter (dm³)</option>
+                            <option value="cm3" data-i18n-unit data-unit-display="cm³">cubic centimeter (cm³)</option>
+                            <option value="mm3" data-i18n-unit data-unit-display="mm³">cubic millimeter (mm³)</option>
+                            <option value="l" data-i18n-unit data-unit-display="l" selected>liter (l)</option>
+                            <option value="dl" data-i18n-unit data-unit-display="dl">deciliter (dl)</option>
+                            <option value="cl" data-i18n-unit data-unit-display="cl">centiliter (cl)</option>
+                            <option value="ml" data-i18n-unit data-unit-display="ml">milliliter (ml)</option>
+                        </optgroup>
+                        <optgroup label="Imperial / US" data-unit-group="imperial_us">
+                            <option value="gal_us" data-i18n-unit data-unit-display="gal">gallon US (gal)</option>
+                            <option value="gal_uk" data-i18n-unit data-unit-display="gal UK">gallon UK (gal UK)</option>
+                            <option value="qt" data-i18n-unit data-unit-display="qt">quart US (qt)</option>
+                            <option value="pt" data-i18n-unit data-unit-display="pt">pint US (pt)</option>
+                            <option value="cup" data-i18n-unit data-unit-display="cup">cup US (cup)</option>
+                            <option value="floz_us" data-i18n-unit data-unit-display="fl oz">fluid ounce US (fl oz)</option>
+                            <option value="ft3" data-i18n-unit data-unit-display="ft³">cubic foot (ft³)</option>
+                            <option value="in3" data-i18n-unit data-unit-display="in³">cubic inch (in³)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <button class="swap-btn" id="swap-btn" type="button" data-i18n-aria-label="volume_swap" aria-label="Swap units">⇄</button>
+
+                <div class="unit-select-group">
+                    <label for="to-unit" data-i18n="volume_to">To</label>
+                    <select id="to-unit" aria-label="To unit">
+                        <optgroup label="Metric" data-unit-group="metric">
+                            <option value="m3" data-i18n-unit data-unit-display="m³">cubic meter (m³)</option>
+                            <option value="dm3" data-i18n-unit data-unit-display="dm³">cubic decimeter (dm³)</option>
+                            <option value="cm3" data-i18n-unit data-unit-display="cm³">cubic centimeter (cm³)</option>
+                            <option value="mm3" data-i18n-unit data-unit-display="mm³">cubic millimeter (mm³)</option>
+                            <option value="l" data-i18n-unit data-unit-display="l">liter (l)</option>
+                            <option value="dl" data-i18n-unit data-unit-display="dl">deciliter (dl)</option>
+                            <option value="cl" data-i18n-unit data-unit-display="cl">centiliter (cl)</option>
+                            <option value="ml" data-i18n-unit data-unit-display="ml">milliliter (ml)</option>
+                        </optgroup>
+                        <optgroup label="Imperial / US" data-unit-group="imperial_us">
+                            <option value="gal_us" data-i18n-unit data-unit-display="gal" selected>gallon US (gal)</option>
+                            <option value="gal_uk" data-i18n-unit data-unit-display="gal UK">gallon UK (gal UK)</option>
+                            <option value="qt" data-i18n-unit data-unit-display="qt">quart US (qt)</option>
+                            <option value="pt" data-i18n-unit data-unit-display="pt">pint US (pt)</option>
+                            <option value="cup" data-i18n-unit data-unit-display="cup">cup US (cup)</option>
+                            <option value="floz_us" data-i18n-unit data-unit-display="fl oz">fluid ounce US (fl oz)</option>
+                            <option value="ft3" data-i18n-unit data-unit-display="ft³">cubic foot (ft³)</option>
+                            <option value="in3" data-i18n-unit data-unit-display="in³">cubic inch (in³)</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <input type="number" id="volume-input" class="length-input"
+                   placeholder="Enter value" min="0" step="any"
+                   data-i18n-placeholder="volume_enter_value"
+                   aria-label="Value to convert">
+
+            <div class="length-btn-group">
+                <button id="convert-btn" class="length-convert-btn" type="button" data-i18n="volume_convert">Convert</button>
+                <button id="reset-btn" class="length-reset-btn" type="button" data-i18n="volume_reset">Reset</button>
+            </div>
+
+            <div id="volume-result" class="length-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="mobile-unit-picker.js?v=2.0.0"></script>
+    <script defer src="volume.js?v=2.0.0"></script>
+</body>
+</html>

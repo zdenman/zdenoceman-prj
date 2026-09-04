@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 244 220">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+        stroke: #2885c7;
+        stroke-linejoin: round;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #d6dfe9;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="79.46014" y1="-22.28918" x2="165.77827" y2="127.21821" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3392d6"/>
+      <stop offset="1" stop-color="#2885c7"/>
+    </linearGradient>
+    <symbol id="ocean" viewBox="0 0 244 92">
+      <path class="cls-1" d="M242,24.63384h-8.00003c-10.91887,0-20.84607-11.66221-25.97157-21.38947-.87425-1.65916-3.18258-1.65916-4.05683,0-5.1255,9.72726-15.05273,21.38947-25.9716,21.38947s-20.84607-11.66221-25.97157-21.38947c-.87425-1.65916-3.18258-1.65916-4.05683,0-5.1255,9.72726-15.05273,21.38947-25.9716,21.38947s-20.84608-11.66221-25.97158-21.38946c-.87424-1.65915-3.18257-1.65915-4.05682,0-5.1255,9.72726-15.05272,21.38946-25.9716,21.38946S45.15389,12.97163,40.02839,3.24437c-.87424-1.65915-3.18257-1.65915-4.05682,0-5.1255,9.72726-15.05272,21.38946-25.9716,21.38946H2v49.06223c0,9.00441,7.14696,16.30393,15.96318,16.30393H226.03682c8.81622,0,15.96318-7.29952,15.96318-16.30393V24.63384Z"/>
+    </symbol>
+    <symbol id="wind-small" viewBox="0 0 134 92">
+      <g>
+        <path class="cls-2" d="M103.2277,8.77778c2.83043-2.94498,6.80955-4.77778,11.21675-4.77778,8.5911,0,15.55556,6.96446,15.55556,15.55556s-6.96446,15.55556-15.55556,15.55556H4"/>
+        <path class="cls-2" d="M58.67214,83.22222c2.83043,2.94498,6.80955,4.77778,11.21675,4.77778,8.5911,0,15.55556-6.96446,15.55556-15.55556s-6.96446-15.55556-15.55556-15.55556H4.55556"/>
+      </g>
+    </symbol>
+  </defs>
+  <g id="wind-offshore">
+    <g>
+      <use width="244" height="92" transform="translate(0 128)" xlink:href="#ocean"/>
+      <use width="134" height="92" transform="translate(181) rotate(-180) scale(1 -1)" xlink:href="#wind-small"/>
+    </g>
+  </g>
+</svg>

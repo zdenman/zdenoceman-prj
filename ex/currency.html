@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Offline-ready currency conversion with cached exchange rates and recent history.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="app.js?v=2.0.0"></script>
+    <title>Currency Calculator</title>
+</head>
+<body class="currency-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container" role="main" id="main-content">
+        <div class="row">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1>Currency Calculator</h1>
+            </div>
+
+            <div id="offline-indicator" class="offline-indicator" role="alert" aria-live="polite">
+                📱 Offline Mode
+            </div>
+
+            <div class="rates-toolbar">
+                <p class="intro">Currency values are updated daily</p>
+                <button id="rates-toggle" class="rates-toggle" type="button" aria-expanded="false" aria-controls="exchange-rates-panel">
+                    <span id="rates-toggle-label">Show rates</span>
+                    <span class="rates-toggle-icon" aria-hidden="true">⌄</span>
+                </button>
+            </div>
+
+            <div id="exchange-rates-panel" class="exchange-rates-panel" hidden>
+                <div class="exchange-rates">
+                    <div class="exchange-rate" id="rsd-container">
+                        <p id="rsd" aria-live="polite">1 EUR = Loading...</p>
+                        <span class="currency-code">RSD</span>
+                    </div>
+                    <div class="exchange-rate" id="czk-container">
+                        <p id="czk" aria-live="polite">1 EUR = Loading...</p>
+                        <span class="currency-code">CZK</span>
+                    </div>
+                    <div class="exchange-rate" id="huf-container">
+                        <p id="huf" aria-live="polite">1 EUR = Loading...</p>
+                        <span class="currency-code">HUF</span>
+                    </div>
+                    <div class="exchange-rate" id="mkd-container">
+                        <p id="mkd" aria-live="polite">1 EUR = Loading...</p>
+                        <span class="currency-code">MKD</span>
+                    </div>
+                    <div class="exchange-rate" id="pln-container">
+                        <p id="pln" aria-live="polite">1 EUR = Loading...</p>
+                        <span class="currency-code">PLN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row2">
+            <div class="section-header">
+                <h2 class="section-title">Select Currencies</h2>
+                <a id="history-link" class="history-link" href="history.html">History</a>
+            </div>
+            <div id="currency-selection-grid" class="currency-grid" role="group" aria-label="Currency selection"></div>
+
+            <div id="calculator-section" class="calculator" style="display: none;">
+                <p id="selected-currency-pair" class="selected-currency-pair" aria-live="polite"></p>
+                <label for="amount-input" class="sr-only">Enter amount to convert</label>
+                <input type="number" id="amount-input" class="inp" placeholder="Enter amount" aria-label="Amount to convert">
+                <div class="button-group">
+                    <button id="calculate-btn" type="button">Calculate</button>
+                    <button id="reset-btn" type="button" class="reset-button">Reset</button>
+                </div>
+                <p id="conversion-result" aria-live="polite" aria-atomic="true"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+</body>
+</html>

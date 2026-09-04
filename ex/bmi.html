@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <title>BMI Calculator</title>
+</head>
+<body class="single-panel-page">
+    <div class="container" role="main">
+        <div class="row">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="menu_bmi">BMI</h1>
+            </div>
+
+            <p class="length-intro" data-i18n="bmi_intro">Body Mass Index — calculate and understand your BMI</p>
+
+            <!-- Metric inputs -->
+            <div class="bmi-inputs">
+                <div class="bmi-field">
+                    <label for="height-cm" data-i18n="bmi_height_cm">Height (cm)</label>
+                    <input type="number" id="height-cm" class="length-input bmi-input" placeholder="e.g. 175" min="1" max="300" step="0.1" data-i18n-placeholder="bmi_placeholder_height_cm">
+                </div>
+                <div class="bmi-field">
+                    <label for="weight-kg" data-i18n="bmi_weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight-kg" class="length-input bmi-input" placeholder="e.g. 70" min="1" max="600" step="0.1" data-i18n-placeholder="bmi_placeholder_weight_kg">
+                </div>
+            </div>
+
+            <div class="length-btn-group">
+                <button id="calc-btn" class="length-convert-btn" type="button" data-i18n="bmi_calculate">Calculate</button>
+                <button id="reset-btn" class="length-reset-btn" type="button" data-i18n="bmi_reset">Reset</button>
+            </div>
+
+            <!-- Result -->
+            <div id="bmi-result-box" class="bmi-result-box" hidden>
+                <div class="bmi-score-row">
+                    <span class="bmi-score-label" data-i18n="bmi_your_bmi">Your BMI</span>
+                    <span class="bmi-score" id="bmi-score"></span>
+                </div>
+                <div class="bmi-category-badge" id="bmi-badge"></div>
+                <div class="bmi-gauge" aria-hidden="true">
+                    <div class="bmi-gauge-track">
+                        <div class="bmi-gauge-seg bmi-seg-underweight"></div>
+                        <div class="bmi-gauge-seg bmi-seg-normal"></div>
+                        <div class="bmi-gauge-seg bmi-seg-overweight"></div>
+                        <div class="bmi-gauge-seg bmi-seg-obese1"></div>
+                        <div class="bmi-gauge-seg bmi-seg-obese2"></div>
+                        <div class="bmi-gauge-seg bmi-seg-obese3"></div>
+                    </div>
+                    <div class="bmi-gauge-needle" id="bmi-needle"></div>
+                    <div class="bmi-gauge-labels">
+                        <span>16</span><span>18.5</span><span>25</span><span>30</span><span>35</span><span>40</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category table -->
+            <div class="bmi-table">
+                <h2 class="bmi-table-title" data-i18n="bmi_table_title">BMI Categories</h2>
+                <div class="bmi-table-row">
+                    <span class="bmi-table-dot" style="background:#60a5fa"></span>
+                    <span class="bmi-table-range">&lt; 18.5</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_underweight">Underweight</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_underweight">May indicate malnutrition, eating disorders or other health issues.</span>
+                </div>
+                <div class="bmi-table-row bmi-table-row--highlight" id="bmi-table-row-normal">
+                    <span class="bmi-table-dot" style="background:#22c55e"></span>
+                    <span class="bmi-table-range">18.5 – 24.9</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_normal">Normal weight</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_normal">Associated with the lowest risk of weight-related health problems.</span>
+                </div>
+                <div class="bmi-table-row" id="bmi-table-row-overweight">
+                    <span class="bmi-table-dot" style="background:#f59e0b"></span>
+                    <span class="bmi-table-range">25 – 29.9</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_overweight">Overweight</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_overweight">Increased risk of cardiovascular disease, type 2 diabetes and hypertension.</span>
+                </div>
+                <div class="bmi-table-row" id="bmi-table-row-obese1">
+                    <span class="bmi-table-dot" style="background:#f97316"></span>
+                    <span class="bmi-table-range">30 – 34.9</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_obese1">Obese class I</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_obese1">High risk. Lifestyle changes and medical consultation are recommended.</span>
+                </div>
+                <div class="bmi-table-row" id="bmi-table-row-obese2">
+                    <span class="bmi-table-dot" style="background:#ef4444"></span>
+                    <span class="bmi-table-range">35 – 39.9</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_obese2">Obese class II</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_obese2">Very high risk. Medical treatment is strongly advised.</span>
+                </div>
+                <div class="bmi-table-row" id="bmi-table-row-obese3">
+                    <span class="bmi-table-dot" style="background:#991b1b"></span>
+                    <span class="bmi-table-range">&ge; 40</span>
+                    <span class="bmi-table-name" data-i18n="bmi_cat_obese3">Obese class III</span>
+                    <span class="bmi-table-desc" data-i18n="bmi_desc_obese3">Extremely high risk. Immediate medical attention is strongly recommended.</span>
+                </div>
+
+                <p class="bmi-disclaimer" data-i18n="bmi_disclaimer">BMI is a screening tool, not a diagnostic measure. It does not account for muscle mass, bone density, or fat distribution. Consult a healthcare professional for a full assessment.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="bmi.js?v=2.0.0"></script>
+</body>
+</html>

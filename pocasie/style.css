@@ -1,0 +1,756 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --background-1: #1e3c72;  /* fallback for old browsers */
+    --background-2: -webkit-linear-gradient(to right, #2a5298, #1e3c72);/* Chrome 10-25, Safari 5.1-6 */
+    --background-3: linear-gradient(to right, #2a5298, #1e3c72);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, */
+    --el-background: #18305e; /*sidebar background, topbar background, cities dropdown background*/
+    --btn-background: #1e3c72; /*button background*/
+    --light-font: #80acf8; 
+}
+.moonlit-asteroid {
+    --background-1: #0F2027;  /* fallback for old browsers */
+    --background-2: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    --background-3: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --el-background: #0F2027;
+    --btn-background: #132831;
+    --light-font: #41819c;
+}
+.deep-space {
+    --background-1: #000000;  /* fallback for old browsers */
+    --background-2: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    --background-3: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --el-background: #000000;
+    --btn-background: #222222;
+    --light-font: #7e7e7e;
+}
+.sand-blue {
+    --background-1: #3E5151;  /* fallback for old browsers */
+    --background-2: -webkit-linear-gradient(to right, #3E5151, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
+    --background-3: linear-gradient(to right, #3E5151, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --el-background: #3E5151;
+    --btn-background: rgba(62, 81, 81, 0.8);
+    --light-font: #6c8787;
+
+}
+.visions-of-grandeur {
+    --background-1: #004c61;  /* fallback for old browsers */
+    --background-2: -webkit-linear-gradient(to right, #1CB5E0, #004c61);  /* Chrome 10-25, Safari 5.1-6 */
+    --background-3: linear-gradient(to left, #1CB5E0, #004c61); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --el-background: #004c61;
+    --btn-background: #004c61;
+    --light-font: #1CB5E0;
+
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    /* border: 1px dashed red; */
+}
+body{
+    background: var(--background-1);  
+    background: var(--background-2);  
+    background: var(--background-3);
+  
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+h2{
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.container,
+.astro-container,
+.astro-moonphases-desc,
+.settings-container,
+.help-container,
+.credits-container,
+.baufort-container,
+.uv-index-container {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 750px;
+    height: auto;
+    padding: 1rem;
+    margin-inline: auto;
+    position: relative;
+}
+.astro-top-bar{
+    display: flex;
+    justify-content: space-around;
+}
+.astro-main{
+    display: flex;
+}
+.astro-low-bar{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+.moon-rise-i,
+.moon-set-i{
+    width: 64px;
+    height: auto;
+}
+.side-panel{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    height: 100svh;
+    background-color: var(--el-background);
+    overflow-x: hidden;
+    transform: translateX(-100%);
+    /* opacity: 0; */
+    transition: transform .3s ease;
+    z-index: 10;
+}
+.version {
+    font-size: 10px;
+    color: var(--light-font);
+    text-align: center;
+    padding-bottom: 5px;
+}
+.menu-active{
+    transform: translateX(0);
+    /* opacity: 1; */
+    /* width: 100%; */
+}
+.side-panel ul li {
+    list-style: none;
+    text-align: center;
+    padding: .8rem 4rem;
+}
+.side-panel ul li a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 400;
+}
+.side-panel ul li:hover{
+    color: gold;
+    cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+}
+/* @media only screen and (min-width: 750px) and (orientation: landscape) {
+    .conatiner{
+        width: 100%;
+        height: 100%;
+        margin: 0 0;
+        background-color: red;
+    }
+} */
+.menu-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    background-color: var(--el-background);
+}
+.x{
+    padding: 5px;
+}
+.x:hover{
+    cursor: pointer;
+}
+.navbar{
+    padding-left: 5px;
+}
+.info-nav{
+    display: flex;
+    gap: 1rem;
+    padding-right: 5px;
+}
+.small-top-bar,
+.small-bottom-bar{
+    display: flex;
+    /* gap: 1.5rem; */
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.625rem, 0.438rem + 1.2vw, 1rem);
+    color: white;
+}
+.location{
+    display: flex;
+    gap: 5px;
+}
+.location:hover {
+    color: gold;
+    cursor: pointer;
+}
+.map-pin{
+    width: 14px;
+    height: auto;
+}
+.city-drop {
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--el-background);
+    padding: 10px;
+    top: 26px;
+    left: 50%;
+    z-index: 6;
+    
+}
+#city-drop li{
+    padding-bottom: 10px;
+    padding-right: 50px;
+    cursor: pointer;
+    list-style: none;
+}
+#city-drop li:hover {
+    color: gold;
+}
+.city-drop-show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .2s ease-in-out;
+}
+@media screen and (max-width: 600px){
+    .small-top-bar{
+        gap: .4rem;
+    }
+}
+/* @media screen and (max-width: 750px){
+    .container{
+        /* background-color: red; */
+    /* } */
+    /* .small-top-bar{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    } */
+/* } */ 
+
+.sunrise,
+.sunset,
+.min-temp,
+.max-temp,
+.uv,
+.wind,
+.chanse-of-rain,
+.wind-direction,
+.preasure,
+.humidity {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+}
+.sunrise-i,
+.sunset-i,
+.min-i,
+.max-i,
+.uv-i,
+.wind-i,
+.rain-i,
+.wdir-i,
+.pres-i,
+.hum-i
+.wind-arrow {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    object-position: center;
+   
+}
+.min-temp-res,
+.max-temp-res,
+.chanse-of-rain-res,
+.humidity-res,
+.preasure-res,
+.wind-res {
+    display: block;
+    margin-left: -15px;
+    margin-right: 15px;
+}
+.wind-res,
+.preasure-res {
+    margin-left: -10px;
+}
+.sunrise-res,
+.sunset-res {
+    display: block;
+    margin-left: -10px;
+    margin-right: 15px;
+}
+.min-temp-res span,
+.max-temp-res span,
+.humidity-res span,
+.preasure-res span,
+.wind-res span {
+    font-size: 10px;
+    color: var(--light-font);
+    padding: 2px;
+}
+.wind-arrow {
+    font-size: 20px;
+    margin-left: -10px;
+    margin-right: 15px;
+}
+.current-day-data{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    align-items: center;
+   
+}
+.current-temp{
+    color: white;
+    font-size: 5rem;
+}
+.current-temp span{
+    font-size: 1.4rem;
+    color: var(--light-font);
+}
+.current-weather-icon{
+    /* position: absolute; */
+    display: flex; /* Ensures the image centers correctly */
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    /* z-index: -1; */
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    /* top: 10%; */
+    /* left: 0; */
+}
+.center-crop {
+    object-fit: cover; /* This makes the image cover the available space without distortion */
+    width: 140%; /* Ensures the image expands to cover the width; can adjust as needed */
+    height: 140%; /* Ensures the image expands to cover the height; can adjust as needed */
+    object-position: center; /* Focuses the center of the image in the visible area */
+  }
+img{
+    display: block;
+    width: 100%;
+}
+.min-temp {
+    z-index: 5;
+}
+.current-data-container{
+    display: flex;
+    flex-direction: column;
+}
+.current-data-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.column1,
+.column2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* .column1{
+    /* position: relative; */
+/* }  */
+.current-weather-text{
+    /* position: absolute; */
+    top: 75%;
+    color: white;
+    /* padding-left: 1rem; */
+}
+.date,
+.current-day{
+    color: var(--light-font);
+    /* font-size: 12px; */
+}
+.current-hour{
+    border: 1px solid gold;
+}
+.clock{
+    display: none;
+    color: white;
+    font-size: clamp(3rem, 1rem + 12.8vw, 9rem);
+    padding-inline: 1.5rem;
+    font-weight: 900;
+    
+}
+.clock span{
+    font-size: clamp(2rem, 2.625rem + -4vw, 1.75rem);
+}
+.two-days-container {
+    display: flex;
+    flex-direction: column;
+}
+.day-one,
+.day-two {
+    display: flex;
+    /* gap: 10px; */
+    justify-content: space-evenly;
+    background-color: var(--btn-background);
+    border-radius: 5px;
+    padding: 0 3px;
+}
+.day-one {
+    margin-bottom: 2px;
+}
+.wind-arrow,
+.daily-wind-arrow {
+    color: gold;
+}
+.wind span,
+.preasure span,
+.feels-like span,
+.chanse-of-rain-res span,
+.humidity-res span,
+.hourly-data span {
+    font-size: 10px;
+    color: var(--light-font);
+    padding: 2px;
+}
+.forecast-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.forecast-wrap img {
+    width: 48px;
+    height: auto;
+}
+.forecast-wrap span {
+    font-size: 10px;
+    color: var(--light-font);
+}
+.icon-text {
+    font-size: 10px;
+    color: var(--light-font);
+}
+.small-bottom-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.625rem, 0.438rem + 1.2vw, 1rem);
+    gap: 1rem;
+}
+.feel-wrapper {
+    display: flex;
+    gap: 5px;
+}
+@media screen and (max-width: 620px){
+    .small-bottom-bar{
+        gap: .45rem;
+    }
+    .feels-like,
+    .feel-text,
+    .current-weather-text{
+        font-size: .75rem;
+        text-align: center;
+    }
+    .current-temp{
+        font-size: 3rem;
+    }
+}
+.hourly{
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+.show{
+    display: flex;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; 
+    
+}
+.hourly-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .5rem;
+    background-color: var(--btn-background);
+    padding: .3rem .1rem;
+    border-radius: 5px;
+}
+.hourly-options{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.htime{
+    color: var(--light-font);
+}
+button{
+    background-color: var(--btn-background);
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+}
+button:hover{
+    background-color: var(--el-background);
+    cursor: pointer;
+}
+.active{
+    border: .5px solid gold;
+    background-color: var(--el-background);
+}
+.chart-container{
+    width: 670px;
+    height: 350px;
+}
+#tempChart{
+    width: 100%;
+    height: 100%;
+}
+.illumination {
+    text-align: center;
+}
+.illumination-wrapper {
+    text-align: center;
+    padding-bottom: 1rem;
+    color: var(--light-font);
+}
+.astro-low-bar {
+    padding-bottom: 1rem;
+}
+.astro-low-bar p {
+    font-size: 25px;
+    font-weight: 900;
+}
+.astro-low-bar span {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    color: yellow;
+}
+.astro-low-bar h2 {
+    font-weight: 900;
+}
+.moonphase-desc {
+    font-weight: 300;
+    text-align: center;
+}
+.moonphase-desc a {
+    color: var(--light-font);
+}
+.moonphase-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.moonphase-img {
+    width: 100px;
+    height: auto;
+}
+.moonphase-img img {
+    width: 100%;
+    height: 100%;
+}
+/* Settings page button stylings */
+button.blue-marlin,
+button.moonlit-asteroid,
+button.deep-space,
+button.sand-blue,
+button#enBtn,
+button#skBtn,
+button#srBtn {
+    margin-bottom: 10px;
+    padding: 20px 0;
+}
+.settings-container p {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: var(--light-font);
+}
+#blue-marlin {
+    background-color: #1e3c72;
+}
+#sand-blue{
+    background-color: linear-gradient(to right, #DECBA4, #3E5151);
+}
+#visions-grandeur {
+    background-color: linear-gradient(to right, #1CB5E0, #000046);
+}
+#blue-marlin:hover,
+#mooblit-asteroid:hover,
+#deep-space:hover,
+#sand-blue:hover,
+#visons-grandeur {
+    cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+    .chart-container{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* page loader */
+
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: var(--el-background); /* Ensure this variable is correctly defined */
+    display: flex; /* This should correctly center the child content when active */
+    justify-content: center;
+    align-items: center;
+    display: none; /* Make sure this is toggled by JavaScript */
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) { animation-delay: -0.45s; }
+  .lds-ring div:nth-child(2) { animation-delay: -0.3s; }
+  .lds-ring div:nth-child(3) { animation-delay: -0.15s; }
+  .lds-ring div:nth-child(4) { animation-delay: 0s; }
+  
+  @keyframes lds-ring {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .wind {
+    position: relative;
+  }
+  .wind:hover {
+    cursor: pointer;
+  }
+  .baufort {
+    position: absolute;
+    display: block;
+    bottom: 7px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+  }
+  .baufort-level-wrap {
+    display: flex;
+  }
+  .baufort-inner-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .baufort-wind-desc {
+    margin-top: 10px;
+    padding-bottom: 5px;
+    font-weight: 700;
+  }
+  .baufort-wind-int {
+    font-size: 12px;
+    padding-bottom: 5px;
+  }
+  .baufort-wind-int span{
+    color: var(--light-font);
+  }
+  .baufort-icon {
+    display: block;
+    margin: 10px 10px 10px 0;
+  }
+  .baufort-i {
+    width: 20px;
+    height: 20px;
+  }
+  .baufort-ix {
+    width: 30px;
+    height: 30px;
+  }
+  .wind-res {
+    padding-left: 5px;
+  }
+  .baufort-wind-desc {
+    color: gold;
+  }
+  .baufort-wind-land,
+  .baufort-wind-sea {
+    font-weight: 300;
+  }
+  .baufort-wind-land {
+    padding-bottom: 5px;
+  }
+  /* UV Index page */
+.uv:hover {
+    cursor: pointer;
+}
+.uv-index-container p {
+    font-weight: 300;
+}
+.astro-container button,
+#back-btn-settings,
+.credits-container button,
+.help-container button,
+.uv-index-container button,
+.baufort-container button,
+.astro-moonphases-desc button {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+.uv-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.uv-icon-row {
+    display: flex;
+    gap: 5px;
+}
+.uv-desc-row {
+    font-weight: 300;
+}
+.uv-page-i {
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+/* Credits */
+.credits-container p {
+    font-weight: 300;
+    margin-top: 10px;
+}
+a {
+    color: var(--light-font);
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./dist/slotmachine.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Lucky number</title>
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- Start of risk container -->
+        <div class="risk-container hidden">
+            <div class="result-panel">Win:</div>
+            <div class="card-rect">
+                <div class="cards-draw">
+                    <div class="cards">
+                        <img src="./img/back_blue.png" alt="">
+                        <div class="card"></div>
+                    </div>
+                </div>
+                <div class="player-bet">
+                    <div class="redblack">
+                        <div class="red"><button id="red">Red</button></div>
+                        <div class="black"><button id="black">Black</button></div>
+                    </div>
+                    <div class="collect"><button id="collect">Collect</button></div>
+                </div>
+            </div>
+            <div class="history-rect">
+                <p>History</p>
+            </div>
+        </div>
+        <!-- End of risk container -->
+        <div class="panel">
+            <div class="credit">Credit: 0</div>
+            <div class="jackpot"></div>
+            <div class="bet-container">
+                <div class="bet">Bet: 0</div>
+            </div>
+        </div>
+        <div class="slot-wrapper">
+            <div class="wheel1">
+                <div class="wheel1_1 spinning"></div>
+                <div class="wheel1_2"></div>
+                <div class="wheel1_3"></div>
+            </div>
+            <div class="wheel2">
+                <div class="wheel2_1"></div>
+                <div class="wheel2_2"></div>
+                <div class="wheel2_3"></div>
+            </div>
+            <div class="wheel3">
+                <div class="wheel3_1"></div>
+                <div class="wheel3_2"></div>
+                <div class="wheel3_3"></div>
+            </div>
+            <div class="wheel4">
+                <div class="wheel4_1"></div>
+                <div class="wheel4_2"></div>
+                <div class="wheel4_3"></div>
+            </div>
+            <div class="wheel5">
+                <div class="wheel5_1"></div>
+                <div class="wheel5_2"></div>
+                <div class="wheel5_3"></div>
+            </div>
+            <div class="bet-buttons">
+                <button class="plus">+</button>
+                <button id="spin" class="spin">Spin</button>
+                <button class="minus">-</button>
+            </div>
+            
+        </div>
+        <div class="controls">
+            <button class="info">i</button>
+            <div class="message">Press spin to start game</div>
+            <button class="risk">Risk</button>
+            
+        </div>
+    </div>
+    <footer>
+        <p>Copyright &copy 2023. Zdeno Ceman All rights reserved.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

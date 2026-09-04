@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="history.js?v=2.0.0"></script>
+    <title>Calculation History</title>
+</head>
+<body class="single-panel-page">
+    <a href="#history-list" class="skip-link">Skip to history</a>
+
+    <div class="container history-page">
+        <div class="row" role="main">
+            <div class="history-top-actions">
+                <a id="back-link" class="page-link" href="index.html">Back to tools</a>
+                <button id="clear-history-btn" type="button" class="page-link danger-button">Clear history</button>
+            </div>
+
+            <div class="history-header">
+                <div>
+                    <h1 id="history-title">Calculation history</h1>
+                    <p id="history-intro" class="history-subtitle">Recent conversions saved on this device.</p>
+                </div>
+            </div>
+
+            <div id="history-list" class="history-list" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal-overlay" hidden>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title" aria-describedby="confirm-modal-message">
+            <h2 id="confirm-modal-title" class="modal-title">Clear history</h2>
+            <p id="confirm-modal-message" class="modal-message">Clear all saved calculations?</p>
+            <div class="modal-actions">
+                <button id="confirm-cancel-btn" type="button" class="page-link modal-cancel-button">Cancel</button>
+                <button id="confirm-accept-btn" type="button" class="page-link danger-button modal-confirm-button">Clear history</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+</body>
+</html>

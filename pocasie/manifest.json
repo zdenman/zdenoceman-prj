@@ -1,0 +1,49 @@
+{
+    "name": "Počasie",
+    "short_name": "Počasie",
+    "start_url": "/prj/pocasie/",
+    "scope": "/prj/pocasie/",
+    "display": "standalone",
+    "background_color": "#18305e",
+    "theme_color": "#18305e",
+    "description": "Mala appka pre aktualne počasie, počasie pre každu hodinu a predpoved na 2 dni. ",
+    "screenshots": [
+      {
+        "src": "./scrn/scrn1.png",
+        "type": "image/png",
+        "sizes": "631x1306",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "./scrn/scrn2.png",
+        "type": "image/png",
+        "sizes": "638x1305",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "./scrn/scrn3.png",
+        "type": "image/png",
+        "sizes": "656x1297",
+        "form_factor": "narrow"
+      }
+    ],
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "./icons/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "./icons/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    },
+    {
+      "src": "./icons/maskable_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+  }
+    ]
+  }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0f0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="icon/euro-blue.png">
+    <script src="preferences.js?v=2.0.0"></script>
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="manifest" href="manifest.json?v=2.0.0" />
+    <title>Alcohol BAC Calculator</title>
+</head>
+<body class="single-panel-page">
+    <div class="container" role="main">
+        <div class="row">
+            <div class="simple-page-header">
+                <a href="index.html" class="page-link simple-back-link" data-i18n="back_to_grid">Back to tools</a>
+                <h1 data-i18n="menu_alcohol">Alcohol</h1>
+            </div>
+
+            <p class="length-intro" data-i18n="alc_intro">Blood alcohol calculator — when will you be sober?</p>
+
+            <!-- ── Quick presets ────────────────────────────────────────────── -->
+            <p class="alc-section-label" data-i18n="alc_presets_title">Quick add</p>
+            <div class="alc-chips" role="group" aria-label="Quick add drinks" data-i18n-aria-label="alc_quick_add_aria">
+                <button class="alc-chip" type="button" data-preset="beer_s">🍺 <span data-i18n="alc_preset_beer_s">Small beer</span></button>
+                <button class="alc-chip" type="button" data-preset="beer_l">🍺 <span data-i18n="alc_preset_beer_l">Large beer</span></button>
+                <button class="alc-chip" type="button" data-preset="wine">🍷 <span data-i18n="alc_preset_wine">Wine</span></button>
+                <button class="alc-chip" type="button" data-preset="shot">🥃 <span data-i18n="alc_preset_shot">Shot</span></button>
+                <button class="alc-chip" type="button" data-preset="radler">🍹 <span data-i18n="alc_preset_radler">Radler</span></button>
+                <button class="alc-chip alc-chip--custom" type="button" data-preset="custom">+ <span data-i18n="alc_preset_custom">Custom</span></button>
+            </div>
+
+            <!-- ── Drink list ────────────────────────────────────────────────── -->
+            <div class="alc-drink-head" aria-hidden="true">
+                <span class="alc-drink-head-time" data-i18n="alc_col_time">Time</span>
+                <span class="alc-drink-head-name"></span>
+                <span class="alc-drink-head-vol" data-i18n="alc_col_volume">ml</span>
+                <span class="alc-drink-head-abv" data-i18n="alc_col_abv">%</span>
+                <span class="alc-drink-head-remove"></span>
+            </div>
+            <div class="alc-drink-list" id="drink-list" role="list" aria-label="Drinks" data-i18n-aria-label="alc_drink_list_aria">
+                <!-- rows injected by JS -->
+            </div>
+            <p class="alc-empty-msg" id="alc-empty-msg" data-i18n="alc_no_drinks">No drinks added yet. Use the buttons above.</p>
+
+            <!-- ── Profile ──────────────────────────────────────────────────── -->
+            <div class="alc-profile">
+                <div class="alc-profile-row">
+                    <span class="alc-profile-label" data-i18n="alc_gender_label">Gender</span>
+                    <div class="alc-gender-toggle" role="group">
+                        <button class="alc-gender-btn alc-gender-btn--active" id="btn-male" type="button" data-i18n="alc_gender_m">M</button>
+                        <button class="alc-gender-btn" id="btn-female" type="button" data-i18n="alc_gender_f">F</button>
+                    </div>
+                </div>
+                <div class="alc-profile-row">
+                    <label for="body-weight" class="alc-profile-label" data-i18n="alc_weight">Weight (kg)</label>
+                    <input type="number" id="body-weight" class="length-input alc-weight-input" min="30" max="300" step="0.5" data-i18n-placeholder="alc_placeholder_weight">
+                </div>
+                <div class="alc-profile-row">
+                    <span class="alc-profile-label" data-i18n="alc_food">Had food?</span>
+                    <div class="alc-food-toggle" role="group">
+                        <button class="alc-food-btn" id="btn-no-food" type="button" data-i18n="alc_food_no">No</button>
+                        <button class="alc-food-btn alc-food-btn--active" id="btn-yes-food" type="button" data-i18n="alc_food_yes">Yes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Buttons ───────────────────────────────────────────────────── -->
+            <div class="length-btn-group">
+                <button id="calc-btn" class="length-convert-btn" type="button" data-i18n="alc_calculate">Calculate</button>
+                <button id="reset-btn" class="length-reset-btn" type="button" data-i18n="alc_reset">Reset</button>
+            </div>
+
+            <!-- ── Result card ───────────────────────────────────────────────── -->
+            <div id="alc-result-card" class="alc-result-card" hidden>
+                <div class="alc-result-main">
+                    <div class="alc-result-label-row">
+                        <span class="alc-result-label" data-i18n="alc_your_bac">Current BAC</span>
+                        <span class="alc-status-badge" id="alc-status-badge"></span>
+                    </div>
+                    <div class="alc-bac-value" id="alc-bac-value">0.00 ‰</div>
+                </div>
+                <div class="alc-zero-row" id="alc-zero-row">
+                    <span class="alc-zero-label" data-i18n="alc_zero_at">Sober at</span>
+                    <span class="alc-zero-time" id="alc-zero-time">—</span>
+                </div>
+                <div class="alc-updated-note" id="alc-updated-note" data-i18n="alc_auto_updated">Auto-updated every minute</div>
+            </div>
+
+            <!-- ── Future check ──────────────────────────────────────────────── -->
+            <div id="alc-future-section" class="alc-future-section" hidden>
+                <p class="alc-section-label" data-i18n="alc_future_title">Check BAC at a future time</p>
+                <div class="alc-future-day-toggle" role="group" aria-label="Future day selector" data-i18n-aria-label="alc_future_day_aria">
+                    <button id="future-day-today" class="alc-future-day-btn alc-future-day-btn--active" type="button" data-i18n="alc_future_today">Today</button>
+                    <button id="future-day-tomorrow" class="alc-future-day-btn" type="button" data-i18n="alc_future_tomorrow">Tomorrow</button>
+                </div>
+                <div class="alc-future-row">
+                    <input type="time" id="future-time" class="length-input alc-time-input">
+                    <button id="future-btn" class="length-convert-btn alc-future-btn" type="button" data-i18n="alc_future_check_btn">Check</button>
+                </div>
+                <div class="alc-future-result" id="alc-future-result"></div>
+            </div>
+
+            <!-- ── Footer help / note ────────────────────────────────────────── -->
+            <div class="alc-footer-meta">
+                <p class="alc-legal-note" id="alc-legal-note" data-i18n="alc_legal_note"></p>
+                <a href="alcohol-info.html" class="alc-help-link" data-i18n="alc_how_link" data-i18n-aria-label="alc_how_link_aria" aria-label="Open explanation page">How it works</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="version-info">v2.0.0</div>
+    <script defer src="register-sw.js?v=2.0.0"></script>
+    <script defer src="alcohol.js?v=2.0.0"></script>
+</body>
+</html>

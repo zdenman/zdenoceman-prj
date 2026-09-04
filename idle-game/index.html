@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="item-bar">
+        <div class="menus">
+            <div class="build">
+                <a href="#">Build</a>
+                <div class="build-container">
+                    <button id="buy-stoneMine">Buy stone mine 200g</button>
+                    <button id="buy-coalMaker">Buy coal maker 300g</button>
+                </div>
+            </div>
+            <div class="upgrades">
+                <a href="#">Upgrades</a>
+                <div class="upgrades-container">
+                    <button id="auto-chopper">Wood chopper 50g</button>
+                    <button id="auto-stoneMiner">Stone miner 50g</button>
+                    <button id="auto-coalMaker">Coal worker 50g</button>
+                </div>
+            </div>
+            <div class="inventory">
+                Inventory
+            </div>
+            <div class="marketplace">
+                <a href="#" class="marketplace">Marketplace</a>
+                <div class="marketplace-container">
+                    <div class="wood-container">
+                        <button id="sell1">Sell [1] wood</button>
+                        <button id="sell10">Sell [10] wood</button>
+                        <button id="sellAll">Sell [all] wood</button>
+                    </div>
+                    <div class="stone-container">
+                        <button id="sellStone1">Sell [1] stone</button>
+                        <button id="sellStone10">Sell [10] stone</button>
+                        <button id="sellStoneAll">Sell [all] stone</button>
+                    </div>
+                    <div class="coal-container">
+                        <button id="sellCoal1">Sell [1] coal</button>
+                        <button id="sellCoal10">Sell [10] coal</button>
+                        <button id="sellCoalAll">Sell [all] coal</button>
+                    </div>
+                    <p class="close-marketplace">Close</p>
+                </div>
+            </div>
+        </div>
+         <ul class="resources">
+            <li id="wood">Wood: 0</li>
+            <li id="stone">Stone: 0</li>
+            <li id="coal">Coal: 0</li>
+            <li>Iron: 0</li>
+            <li id="gold">Gold: 0</li>
+            <li id="population">Population: 0</li>
+            <li id="day">Day: 1</li>
+         </ul>
+    </div>
+    <div class="resources-gathering">
+        <div class="wood-gathering">
+            <div class="wood-lvl"></div>
+            <div class="bar">
+                <div id="auto-chopper-timer"></div>
+            </div>
+            <button id="chop-wood">Chop wood</button>
+        </div>
+            <div class="stone-gathering" id="mine-stone">
+                <div class="stone-lvl"></div>
+                <div class="bar">
+                    <div id="auto-stone-timer"></div>
+                </div>
+                <button id="mine-stone">Mine stones</button>
+            </div>
+            <div class="coal-gathering" id="coal-maker">
+                <div class="coal-lvl"></div>
+                <div class="bar">
+                    <div id="auto-coal-timer"></div>
+                </div>
+                <button id="make-coal">Coal burner</button>
+            </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

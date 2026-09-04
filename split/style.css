@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+body{
+    background-color: #2d2d2d;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    margin: 0 auto;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+}
+button#registerBtn{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+}
+input#username{
+    background-color: grey;
+    border: none;
+    padding: .3rem .5rem;
+    border-radius: 3px;
+}
+input#username::placeholder{
+    color: white;
+}
+input.addToValedInput{
+    background-color: grey;
+    border: none;
+    padding: .3rem .5rem;
+    border-radius: 3px;
+}
+input.addToValedInput::placeholder{
+    color: white;
+}
+button.addBtn{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+}
+button.addBtn:hover{
+    background-color: green;
+    cursor: pointer;
+}
+#message{
+    color: white;
+    transition: opacity 1s ease-out;
+    opacity: 1; /* Start fully visible */
+}
+#user-container {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.user-block{
+    padding: 1rem;
+    margin: .5rem;
+    border: 2px solid rgb(61, 61, 61);
+    border-radius: 5px;
+}
+.register-expenses{
+    display: flex;
+    justify-content: space-between;
+}
+#total-expenses{
+    color: white;
+}
+.user-split-container{
+    text-align: center;
+}
+button#split{
+    opacity: 0;
+    padding: .3rem 1.3rem;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 3px;
+    font-size: 20px;
+    margin: 1rem 0;
+}
+button#split:hover{
+    cursor: pointer;
+    background-color: crimson;
+}
+.user-valet{
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-result{
+    color: white;
+}
+.user-result span{
+    color: goldenrod;
+}
+.user-name{
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    gap: 2rem;
+}
+#equal-share{
+    color: white;
+}
